@@ -1,0 +1,81 @@
+/* @link https://utopia.fyi/type/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+    --space-xs: clamp(0.875rem, 0.8494rem + 0.1136vw, 0.9375rem);
+    --space-s: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    --space-m: clamp(1.6875rem, 1.6108rem + 0.3409vw, 1.875rem);
+    --space-l: clamp(2.25rem, 2.1477rem + 0.4545vw, 2.5rem);
+    --space-xl: clamp(3.375rem, 3.2216rem + 0.6818vw, 3.75rem);
+
+    --font-s: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+    --font-m: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    --font-l: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+    --font-xl: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+    --font-xxl: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+
+    --min-viewport: 22.5rem;
+    --max-viewport: 77.5rem;
+
+    --primary: rgb(0, 56, 113);
+    --secondary: rgb(125, 108, 86);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    font-family: monospace, sans-serif;
+}
+
+body {
+    font-size: var(--font-m);
+    background: hsl(from var(--secondary) h s calc(l - 10));
+}
+
+section {
+    height: 95dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    margin-bottom: var(--space-s);
+    line-height: var(--space-m);
+}
+
+.section-wrapper {
+    width: clamp(var(--min-viewport), 80dvw, var(--max-viewport));
+    padding: var(--space-xl);
+
+    position: relative;
+
+    background: hsl(from var(--secondary) h s calc(l + 50));
+    box-shadow: var(--space-xs) var(--space-xs) hsl(from var(--secondary) h s calc(l - 30) / 0.5);
+
+}
+
+.hero {
+
+    background: var(--secondary);
+
+    p {
+        font-size: var(--font-l);
+        line-height: var(--space-l);
+        margin-bottom: var(--space-m);
+    }
+}
+
+footer {
+    height: 5dvh;
+    text-align: center;
+}
