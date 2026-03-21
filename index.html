@@ -550,49 +550,71 @@
             try {
                 const response = await fetch('./linkedin.json');
                 if (!response.ok) throw new Error("Local linkedin.json not found.");
-                
+
                 const items = await response.json();
                 if (!items || items.length === 0) return;
-                
-                const data = items[0];
-                
-                contentData["ABOUT"] = `<p class="cv-desc">${data.summary || data.headline || ''}</p>`;
-                
-                contentData["CONTACT"] = `<p class="cv-desc">${data.city || 'Vienna'}, ${data.country || 'Austria'}<br>Local Time: <span id="vienna-clock" style="color:var(--text); font-weight:500;">Loading...</span><br><br>LinkedIn: <a href="${data.url}" target="_blank" style="color:inherit; text-decoration:underline;">View Profile</a></p>`;
 
-                if (data.experiences) {
+                const data = items[0];
+
+                // Helper to format the { month, year } object
+                const formatDate = (dateObj) => {
+                    if (!dateObj || !dateObj.year) return null;
+                    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    return dateObj.month ? `${monthNames[dateObj.month - 1]} ${dateObj.year}` : `${dateObj.year}`;
+                };
+
+                // Summary / Headline
+                contentData["ABOUT"] = `<p class="cv-desc">${data.summary || data.headline || ''}</p>`;
+
+                // Contact / Location
+                contentData["CONTACT"] = `<p class="cv-desc">${data.geoLocationName || 'Vienna, Austria'}<br>Local Time: <span id="vienna-clock" style="color:var(--text); font-weight:500;">Loading...</span><br><br>LinkedIn: <a href="${data.inputUrl}" target="_blank" style="color:inherit; text-decoration:underline;">View Profile</a></p>`;
+
+                // Experience (positions)
+                if (data.positions && data.positions.length > 0) {
                     contentData["EXPERIENCE"] = `
                         <div class="cv-timeline">
-                            ${data.experiences.map(job => `
-                                <div class="cv-item">
-                                    <div class="cv-date">${job.starts_at || ''} — ${job.ends_at || 'Present'}</div>
-                                    <div class="cv-title">${job.title || ''}</div>
-                                    <div class="cv-subtitle">${job.company_name || job.company || ''}</div>
-                                    <p class="cv-desc">${job.description || ''}</p>
-                                </div>
-                            `).join('')}
+                            ${data.positions.map(job => {
+                                const start = formatDate(job.timePeriod.startDate) || '';
+                                const end = formatDate(job.timePeriod.endDate) || 'Present';
+                                return `
+                                    <div class="cv-item">
+                                        <div class="cv-date">${start} — ${end}</div>
+                                        <div class="cv-title">${job.title || ''}</div>
+                                        <div class="cv-subtitle">${job.company ? job.company.name : ''}</div>
+                                        <p class="cv-desc">${job.description || ''}</p>
+                                    </div>
+                                `;
+                            }).join('')}
                         </div>`;
                 }
 
-                if (data.education) {
+                // Education
+                if (data.educations && data.educations.length > 0) {
                     contentData["EDUCATION"] = `
                         <div class="cv-timeline">
-                            ${data.education.map(edu => `
-                                <div class="cv-item">
-                                    <div class="cv-date">${edu.starts_at || ''} — ${edu.ends_at || ''}</div>
-                                    <div class="cv-title">${edu.degree_name || ''}</div>
-                                    <div class="cv-subtitle">${edu.school || ''}</div>
-                                </div>
-                            `).join('')}
+                            ${data.educations.map(edu => {
+                                const start = formatDate(edu.timePeriod.startDate) || '';
+                                const end = formatDate(edu.timePeriod.endDate) || 'Present';
+                                return `
+                                    <div class="cv-item">
+                                        <div class="cv-date">${start} — ${end}</div>
+                                        <div class="cv-title">${edu.degreeName || ''}</div>
+                                        <div class="cv-subtitle">${edu.schoolName || ''}</div>
+                                        ${edu.fieldOfStudy ? `<p class="cv-desc">${edu.fieldOfStudy}</p>` : ''}
+                                    </div>
+                                `;
+                            }).join('')}
                         </div>`;
                 }
 
-                if (data.skills) {
+                // Skills (mapping object array to names)
+                if (data.skills && data.skills.length > 0) {
                     contentData["SKILLS"] = `
                         <div class="skills-grid">
-                            ${data.skills.map(s => `<div class="skill-tag">${s}</div>`).join('')}
+                            ${data.skills.map(s => `<div class="skill-tag">${s.name}</div>`).join('')}
                         </div>`;
                 }
+
             } catch (error) {
                 console.warn("CV Data Sync:", error.message);
                 contentData["ABOUT"] = "Bio data currently unavailable.";
