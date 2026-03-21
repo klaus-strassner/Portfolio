@@ -1,17 +1,15 @@
-# .github/workflows/deploy.yml
-name: Sync and Deploy CV
+name: Sync, Commit, and Deploy CV
 
 on:
   push:
     branches: ["main"]
-  workflow_dispatch: # Still allows you to trigger a manual deploy if needed
+  workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write  # Changed to 'write' so it can save the file to your repo
   pages: write
   id-token: write
 
-# Prevent overlapping deployments
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -25,12 +23,37 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          # Fetches full history so we can commit back to the branch
+          fetch-depth: 0 
 
-      - name: Fetch Latest Snapshot from Apify
+      - name: Fetch and Process Data
         run: |
-          # This purely READS the results of the last successful Apify run.
-          # It does not start any new billable tasks on Apify.
-          curl "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > cv.json
+          # Fetch the latest successful run from Apify
+          curl -s "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > raw_cv.json
+          
+          # Ensure it's a single object (grabs the first item from the Apify array)
+          python3 -c "import json, os; 
+          if os.path.exists('raw_cv.json'):
+              with open('raw_cv.json') as f:
+                  data = json.load(f)
+                  with open('cv.json', 'w') as out:
+                      json.dump(data[0] if isinstance(data, list) and len(data) > 0 else data, out, indent=2)
+          "
+          
+          # Clean up temporary file
+          rm raw_cv.json
+          
+          # Create .nojekyll just in case
+          touch .nojekyll
+
+      - name: Commit Updated CV
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "data: sync latest linkedin snapshot from apify"
+          file_pattern: 'cv.json'
+          # If the file hasn't changed since last time, it won't commit
+          skip_dirty_check: false 
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -38,8 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This uploads the entire root folder, including the freshly fetched cv.json
-          path: '.'
+          path: '.' 
 
       - name: Deploy to GitHub Pages
         id: deployment
