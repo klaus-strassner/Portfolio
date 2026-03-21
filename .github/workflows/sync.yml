@@ -1,0 +1,30 @@
+name: Sync LinkedIn Data
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allows the action to commit the JSON file
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Fetch Data from Apify
+        run: |
+          # 1. Trigger a new run for tomorrow
+          curl -X POST "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs?token=${{ secrets.APIFY_TOKEN }}"
+          
+          # 2. Download the results of the last successful run into a local file
+          curl "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > cv.json
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add cv.json
+          git commit -m "Automated LinkedIn Data Sync" || exit 0
+          git push
