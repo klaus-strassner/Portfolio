@@ -3,12 +3,18 @@ name: Sync and Deploy CV
 on:
   push:
     branches: ["main"]
+  schedule:
+    - cron: '0 0 * * 1'
   workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -19,28 +25,38 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Fetch Data
+      - name: Trigger Fresh LinkedIn Scrape
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
-          # Fetch LinkedIn
-          curl -s "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > cv.json
-          
-          # Fetch GitHub (Updated to use the more robust 'github.token' variable)
-          # We added '-f' so the action FAILS if the API returns an error
-          curl -f -H "Authorization: Bearer ${{ github.token }}" \
+          echo "Triggering fresh LinkedIn scrape..."
+          curl -sfX POST "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs?token=${{ secrets.APIFY_TOKEN }}&wait=300" \
+            -H "Content-Type: application/json" > run_info.json
+
+          # Now fetch the items from that specific new run
+          RUN_ID=$(jq -r '.data.id' run_info.json)
+          curl -sf "https://api.apify.com/v2/datasets/$(jq -r '.data.defaultDatasetId' run_info.json)/items?token=${{ secrets.APIFY_TOKEN }}" > linkedin.json
+
+
+      - name: Fetch Last Cached Data
+        if: github.event_name == 'push'
+        run: |
+          echo "Fetching last cached data from Apify..."
+          curl -sf "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > linkedin.json
+
+      - name: Fetch GitHub Data
+        run: |
+          curl -sf -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
                "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=updated&per_page=10" > github.json
-          
-          # DEBUG: This will print the first 100 characters to your Action Log
-          echo "GitHub Data Preview:"
-          head -c 100 github.json
-          
           touch .nojekyll
 
       - name: Commit Updated Data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "data: sync linkedin and github"
-          file_pattern: 'cv.json github.json'
+          commit_message: "data: sync cv sources (Trigger: ${{ github.event_name }}) [skip ci]"
+          file_pattern: 'linkedin.json github.json'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -48,7 +64,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' 
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment

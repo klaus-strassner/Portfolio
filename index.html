@@ -548,8 +548,8 @@
 
         async function initLinkedin() {
             try {
-                const response = await fetch('./cv.json');
-                if (!response.ok) throw new Error("Local cv.json not found.");
+                const response = await fetch('./linkedin.json');
+                if (!response.ok) throw new Error("Local linkedin.json not found.");
                 
                 const items = await response.json();
                 if (!items || items.length === 0) return;
