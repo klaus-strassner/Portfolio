@@ -533,53 +533,55 @@
 
         // --- LINKEDIN CV FETCH ---
         async function initCV() {
-    try {
-        const response = await fetch('./cv.json');
-        if (!response.ok) throw new Error("cv.json not found");
-        const json = await response.json();
-        
-        // Enrich Layer usually nests data under a 'profile' or 'data' key
-        const data = json.profile || json.data || json; 
+            try {
+                const response = await fetch('./cv.json');
+                if (!response.ok) throw new Error("cv.json not found");
+                const data = await response.json();
 
-        // 1. Format Experience (Enrich Layer often uses 'experience' singular)
-        const expList = data.experience || data.experiences || [];
-        if (expList.length > 0) {
-            contentData["EXPERIENCE"] = `<div class="cv-timeline">` + 
-                expList.map(job => `
-                    <div class="cv-item">
-                        <div class="cv-date">${job.start_date || ''} — ${job.end_date || 'Present'}</div>
-                        <div class="cv-title">${job.title}</div>
-                        <div class="cv-subtitle">${job.company_name || job.company}</div>
-                        <div class="cv-desc">${job.description || ''}</div>
-                    </div>
-                `).join('') + `</div>`;
+                // 1. Format Experience
+                if (data.experiences && data.experiences.length > 0) {
+                    contentData["EXPERIENCE"] = `<div class="cv-timeline">` + 
+                        data.experiences.map(job => {
+                            const start = job.starts_at ? job.starts_at.year : '';
+                            const end = job.ends_at ? job.ends_at.year : 'Present';
+                            return `
+                                <div class="cv-item">
+                                    <div class="cv-date">${start} — ${end}</div>
+                                    <div class="cv-title">${job.title}</div>
+                                    <div class="cv-subtitle">${job.company}</div>
+                                    <p class="cv-desc">${job.location || ''}</p>
+                                </div>
+                            `;
+                        }).join('') + `</div>`;
+                }
+
+                // 2. Format Education
+                if (data.education && data.education.length > 0) {
+                    contentData["EDUCATION"] = `<div class="cv-timeline">` + 
+                        data.education.map(edu => {
+                            const start = edu.starts_at ? edu.starts_at.year : '';
+                            const end = edu.ends_at ? edu.ends_at.year : 'Present';
+                            return `
+                                <div class="cv-item">
+                                    <div class="cv-date">${start} — ${end}</div>
+                                    <div class="cv-title">${edu.degree_name || 'Degree'}</div>
+                                    <div class="cv-subtitle">${edu.school}</div>
+                                </div>
+                            `;
+                        }).join('') + `</div>`;
+                }
+
+                // 3. Format Skills
+                if (data.skills && data.skills.length > 0) {
+                    contentData["SKILLS"] = `<div class="skills-grid">` + 
+                        data.skills.map(skill => `<div class="skill-tag">${skill}</div>`).join('') 
+                        + `</div>`;
+                }
+
+            } catch (error) {
+                console.error("CV Load Error:", error);
+            }
         }
-
-        // 2. Format Education
-        const eduList = data.education || [];
-        if (eduList.length > 0) {
-            contentData["EDUCATION"] = `<div class="cv-timeline">` + 
-                eduList.map(edu => `
-                    <div class="cv-item">
-                        <div class="cv-date">${edu.start_date || ''} — ${edu.end_date || ''}</div>
-                        <div class="cv-title">${edu.degree || 'Degree'}</div>
-                        <div class="cv-subtitle">${edu.school_name || edu.school}</div>
-                    </div>
-                `).join('') + `</div>`;
-        }
-
-        // 3. Format Skills
-        const skillsList = data.skills || [];
-        if (skillsList.length > 0) {
-            contentData["SKILLS"] = `<div class="skills-grid">` + 
-                skillsList.map(skill => `<div class="skill-tag">${skill}</div>`).join('') 
-                + `</div>`;
-        }
-
-    } catch (error) {
-        console.error("CV Load Error:", error);
-    }
-}
 
         // Mouse Spotlight
         grid.onmousemove = e => {

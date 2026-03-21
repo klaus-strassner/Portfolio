@@ -1,0 +1,163 @@
+{
+  "public_identifier": "klaus-strassner",
+  "profile_pic_url": null,
+  "background_cover_image_url": null,
+  "first_name": "Klaus",
+  "last_name": "Strassner",
+  "full_name": "Klaus Strassner",
+  "follower_count": 14,
+  "occupation": "Civil Servant at Arbeitskreis Noah",
+  "headline": null,
+  "summary": null,
+  "location_str": "Vienna, Austria",
+  "country": "AT",
+  "country_full_name": "Austria",
+  "city": "Vienna",
+  "state": null,
+  "experiences": [
+    {
+      "starts_at": {
+        "day": 1,
+        "month": 10,
+        "year": 2023
+      },
+      "ends_at": {
+        "day": 31,
+        "month": 7,
+        "year": 2024
+      },
+      "company": "Arbeitskreis Noah",
+      "company_linkedin_profile_url": null,
+      "company_facebook_profile_url": null,
+      "title": "Civil Servant",
+      "description": null,
+      "location": "Vienna, Austria",
+      "logo_url": null
+    },
+    {
+      "starts_at": {
+        "day": 1,
+        "month": 7,
+        "year": 2022
+      },
+      "ends_at": {
+        "day": 31,
+        "month": 8,
+        "year": 2022
+      },
+      "company": "Youscrim GmbH",
+      "company_linkedin_profile_url": "https://www.linkedin.com/company/youscrim",
+      "company_facebook_profile_url": null,
+      "title": "Intern",
+      "description": null,
+      "location": "Cologne, North Rhine-Westphalia, Germany",
+      "logo_url": "https://assets.enrichlayer.com/pp/profilepic/a0f4a8610d0bd1d39f5e65a73629a0d6"
+    },
+    {
+      "starts_at": {
+        "day": 1,
+        "month": 7,
+        "year": 2021
+      },
+      "ends_at": {
+        "day": 31,
+        "month": 8,
+        "year": 2021
+      },
+      "company": "HELFERLINE",
+      "company_linkedin_profile_url": "https://www.linkedin.com/company/helferline",
+      "company_facebook_profile_url": null,
+      "title": "Intern",
+      "description": null,
+      "location": "Vienna, Austria",
+      "logo_url": "https://assets.enrichlayer.com/pp/profilepic/3b6ce4144301ca283b0e62eff0b475e0"
+    }
+  ],
+  "education": [
+    {
+      "starts_at": {
+        "day": 1,
+        "month": 1,
+        "year": 2024
+      },
+      "ends_at": {
+        "day": 31,
+        "month": 12,
+        "year": 2025
+      },
+      "field_of_study": null,
+      "degree_name": null,
+      "school": "AhlmanEdu",
+      "school_linkedin_profile_url": "https://www.linkedin.com/company/ahlmanedu",
+      "school_facebook_profile_url": null,
+      "description": null,
+      "logo_url": "https://assets.enrichlayer.com/pp/hero-img/da54a1a7fcf65ff3257ae4289473b3db",
+      "grade": null,
+      "activities_and_societies": null
+    },
+    {
+      "starts_at": {
+        "day": 1,
+        "month": 1,
+        "year": 2018
+      },
+      "ends_at": {
+        "day": 31,
+        "month": 12,
+        "year": 2023
+      },
+      "field_of_study": null,
+      "degree_name": null,
+      "school": "Schulzentrum HTL HAK Ungargasse",
+      "school_linkedin_profile_url": "https://www.linkedin.com/company/schulzentrum-htl-hak-ungargasse",
+      "school_facebook_profile_url": null,
+      "description": null,
+      "logo_url": "https://assets.enrichlayer.com/pp/profilepic/2ae7ab8bb9f9b31417956265280426f5",
+      "grade": null,
+      "activities_and_societies": null
+    }
+  ],
+  "languages": [
+    "English",
+    "German"
+  ],
+  "languages_and_proficiencies": [
+    {
+      "name": "English",
+      "proficiency": null
+    },
+    {
+      "name": "German",
+      "proficiency": null
+    }
+  ],
+  "accomplishment_organisations": [],
+  "accomplishment_publications": [],
+  "accomplishment_honors_awards": [],
+  "accomplishment_patents": [],
+  "accomplishment_courses": [],
+  "accomplishment_projects": [],
+  "accomplishment_test_scores": [],
+  "volunteer_work": [],
+  "certifications": [],
+  "connections": 14,
+  "people_also_viewed": [],
+  "recommendations": [],
+  "activities": [],
+  "similarly_named_profiles": [],
+  "articles": [],
+  "groups": [],
+  "skills": [],
+  "inferred_salary": null,
+  "gender": null,
+  "birth_date": null,
+  "industry": null,
+  "extra": null,
+  "interests": [],
+  "personal_emails": [],
+  "personal_numbers": [],
+  "meta": {
+    "thin_profile": false,
+    "last_updated": "2025-04-26T00:00:00Z"
+  }
+}
