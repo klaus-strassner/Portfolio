@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Minimalist Grid</title>
+    <title>Klaus Strassner</title>
     <style>
         :root {
             --bg: #000; --cell: #0a0a0a; --text: #fff; --dim: #444; 
@@ -49,7 +49,7 @@
             justify-content: flex-end; padding: 40px; overflow: hidden; cursor: pointer;
             opacity: 0; transform: translateY(10px);
         }
-        
+
         /* Staggered Entrance */
         body.loaded .grid-item { 
             animation: fadeInItem 0.6s ease forwards; 
@@ -100,7 +100,7 @@
 
     <script>
         const grid = document.querySelector('#grid'), charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        
+
         // Handle Window Load
         window.onload = () => {
             setTimeout(() => document.body.classList.add('loaded'), 500);
