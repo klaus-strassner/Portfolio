@@ -3,22 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klaus Strassner</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Responsive Minimalist Grid</title>
+    <style>
+        :root {
+            --bg: #000; --cell: #0a0a0a; --text: #fff; --dim: #444; 
+            --line-grey: #1a1a1a; --spotlight-color: #1a1a1a; --thickness: 1px;
+            --title-idle: 0.3; --title-hover: 1.0; --mouse-x: -100%; --mouse-y: -100%;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            height: 100dvh; overflow: hidden; 
+        }
+
+        /* Loading Screen */
+        #loader {
+            position: fixed; inset: 0; z-index: 100;
+            background: var(--bg); display: flex;
+            align-items: center; justify-content: center;
+            letter-spacing: 4px; font-size: 0.8rem; color: var(--dim);
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        body.loaded #loader { opacity: 0; visibility: hidden; }
+
+        .main-grid {
+            display: grid; width: 100vw; height: 100dvh;
+            grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr);
+            gap: var(--thickness);
+            background: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), var(--spotlight-color), var(--line-grey));
+            background-color: var(--line-grey); transition: background 0.2s ease;
+            opacity: 0; transform: scale(0.98);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        body.loaded .main-grid { opacity: 1; transform: scale(1); }
+
+        .esports { grid-area: 1 / 1 / 3 / 3; }
+        .about { grid-area: 1 / 3 / 2 / 5; }
+        .projects { grid-area: 2 / 3 / 3 / 5; }
+        .quad { grid-area: span 1 / span 1; }
+
+        .grid-item {
+            position: relative; background: var(--cell); text-decoration: none;
+            color: inherit; display: flex; flex-direction: column;
+            justify-content: flex-end; padding: 40px; overflow: hidden; cursor: pointer;
+            opacity: 0; transform: translateY(10px);
+        }
+        
+        /* Staggered Entrance */
+        body.loaded .grid-item { 
+            animation: fadeInItem 0.6s ease forwards; 
+        }
+
+        @keyframes fadeInItem {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content { position: relative; z-index: 2; pointer-events: none; }
+        .title {
+            text-transform: uppercase; font-size: 2.2rem; font-weight: 500;
+            letter-spacing: -1px; margin-bottom: 8px; opacity: var(--title-idle);
+            transition: opacity 0.4s ease;
+        }
+        .esports .title { font-size: 4.8rem; letter-spacing: -2px; margin-bottom: 12px; }
+        .desc { font-size: 1.2rem; color: var(--dim); text-transform: lowercase; visibility: hidden; }
+        .grid-item:hover .title { opacity: var(--title-hover); }
+        .grid-item:focus-visible { box-shadow: inset 0 0 0 2px var(--text); }
+        .grid-item.decrypted .desc { visibility: visible; }
+
+        @media (max-width: 1024px) {
+            .main-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); background: var(--line-grey); }
+            .esports { grid-area: 1 / 1 / 2 / 3; }
+            .about, .projects, .quad { grid-area: auto / span 1; }
+            .desc { visibility: visible; }
+        }
+        @media (max-width: 600px) {
+            .grid-item { padding: 30px; }
+            .esports .title { font-size: 2.8rem; }
+            .title { font-size: 1.6rem; }
+            .desc { font-size: 1rem; }
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <section class="hero">
-            <div class="section-wrapper">
-                <h1>Klaus Strassner's Website</h1>
-                <br/><br/>
-                <p>This space is under construction. Check back soon for updates!</p>
-            </div>
-        </section>
+    <div id="loader">LOADING...</div>
+
+    <main class="main-grid" id="grid">
+        <div class="grid-item esports" data-title="ESPORTS" style="animation-delay: 0.1s;"><div class="content"><h2 class="title"></h2><p class="desc">my purpose</p></div></div>
+        <div class="grid-item about" data-title="ABOUT" style="animation-delay: 0.2s;"><div class="content"><h2 class="title"></h2><p class="desc">my story</p></div></div>
+        <div class="grid-item projects" data-title="PROJECTS" style="animation-delay: 0.3s;"><div class="content"><h2 class="title"></h2><p class="desc">my passion</p></div></div>
+        <div class="grid-item quad" data-title="EDUCATION" style="animation-delay: 0.4s;"><div class="content"><h2 class="title"></h2><p class="desc">my learnings</p></div></div>
+        <div class="grid-item quad" data-title="EXPERIENCE" style="animation-delay: 0.5s;"><div class="content"><h2 class="title"></h2><p class="desc">my journey</p></div></div>
+        <div class="grid-item quad" data-title="SKILLS" style="animation-delay: 0.6s;"><div class="content"><h2 class="title"></h2><p class="desc">my knowledge</p></div></div>
+        <div class="grid-item quad" data-title="CONTACT" style="animation-delay: 0.7s;"><div class="content"><h2 class="title"></h2><p class="desc">get in touch</p></div></div>
     </main>
 
-    <footer>
-        <p>© 2025 Klaus Strassner</p>
-    </footer>
+    <script>
+        const grid = document.querySelector('#grid'), charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        
+        // Handle Window Load
+        window.onload = () => {
+            setTimeout(() => document.body.classList.add('loaded'), 500);
+        };
+
+        grid.onmousemove = e => {
+            const r = grid.getBoundingClientRect();
+            grid.style.setProperty('--mouse-x', `${(e.clientX - r.left) / r.width * 100}%`);
+            grid.style.setProperty('--mouse-y', `${(e.clientY - r.top) / r.height * 100}%`);
+        };
+        grid.onmouseenter = () => grid.style.setProperty('--spotlight-color', '#555');
+        grid.onmouseleave = () => {
+            grid.style.setProperty('--spotlight-color', 'var(--line-grey)');
+            grid.style.setProperty('--mouse-x', '-100%'); grid.style.setProperty('--mouse-y', '-100%');
+        };
+
+        function setupScrambler(item) {
+            const el = item.querySelector('.title'), final = item.dataset.title, chars = final.split("");
+            let interval = null, cur = chars.map(() => Math.floor(Math.random() * charset.length));
+            el.textContent = cur.map(i => charset[i]).join("");
+
+            return (isDec) => {
+                clearInterval(interval);
+                if (!isDec) item.classList.remove('decrypted');
+                const target = isDec ? chars.map(c => charset.indexOf(c)) : chars.map(() => Math.floor(Math.random() * charset.length));
+                const speeds = chars.map(() => Math.floor(Math.random() * 3) + 2);
+
+                interval = setInterval(() => {
+                    let done = true;
+                    cur = cur.map((v, i) => {
+                        if (v === target[i]) return v;
+                        done = false;
+                        return (v + Math.min((target[i] - v + charset.length) % charset.length, speeds[i])) % charset.length;
+                    });
+                    el.textContent = cur.map(i => charset[i]).join("");
+                    if (done) { clearInterval(interval); if (isDec) item.classList.add('decrypted'); }
+                }, 16);
+            };
+        }
+
+        if (window.matchMedia('(hover: hover)').matches) {
+            document.querySelectorAll('.grid-item').forEach(item => {
+                const run = setupScrambler(item);
+                item.onmouseenter = () => run(true);
+                item.onmouseleave = () => run(false);
+            });
+        }
+    </script>
 </body>
 </html>
