@@ -10,10 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
     environment:
@@ -24,23 +20,27 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Fetch Raw Data from Apify & GitHub
+      - name: Fetch Data
         run: |
           # Fetch LinkedIn
           curl -s "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > cv.json
-
-          # Fetch GitHub
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               "https://api.github.com/users/klaus-strassner/repos?sort=updated&per_page=10" > github.json
-
+          
+          # Fetch GitHub (Updated to use the more robust 'github.token' variable)
+          # We added '-f' so the action FAILS if the API returns an error
+          curl -f -H "Authorization: Bearer ${{ github.token }}" \
+               "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=updated&per_page=10" > github.json
+          
+          # DEBUG: This will print the first 100 characters to your Action Log
+          echo "GitHub Data Preview:"
+          head -c 100 github.json
+          
           touch .nojekyll
 
-      - name: Commit Updated CV
+      - name: Commit Updated Data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "data: raw linkedin sync from apify"
-          file_pattern: 'cv.json'
-          skip_dirty_check: false 
+          commit_message: "data: sync linkedin and github"
+          file_pattern: 'cv.json github.json'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
