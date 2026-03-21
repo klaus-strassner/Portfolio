@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klaus Strassner</title>
     <style>
+        /* --- CSS VARIABLES & RESET --- */
         :root {
             --bg: #000; 
             --cell: #0a0a0a; 
@@ -31,7 +32,7 @@
             overflow: hidden; 
         }
 
-        /* Loading Screen */
+        /* --- LOADING SCREEN --- */
         #loader {
             position: fixed; 
             inset: 0; 
@@ -51,6 +52,7 @@
             visibility: hidden; 
         }
 
+        /* --- MAIN GRID LAYOUT --- */
         .main-grid {
             display: grid; 
             width: 100vw; 
@@ -70,6 +72,7 @@
             transform: scale(1); 
         }
 
+        /* Grid Areas */
         .esports { grid-area: 1 / 1 / 3 / 3; }
         .about { grid-area: 1 / 3 / 2 / 5; }
         .projects { grid-area: 2 / 3 / 3 / 5; }
@@ -130,7 +133,7 @@
             text-transform: lowercase; 
         }
 
-        /* Fullscreen Overlay */
+        /* --- FULLSCREEN OVERLAY (MODAL) --- */
         .overlay {
             position: fixed; 
             inset: 0; 
@@ -186,7 +189,7 @@
             color: #ccc; 
         }
 
-        /* --- Project Layout --- */
+        /* --- PROJECT LAYOUT --- */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -226,7 +229,7 @@
             margin-top: auto;
         }
 
-        /* --- Esports Layout --- */
+        /* --- ESPORTS LAYOUT --- */
         .esports-layout {
             display: grid;
             grid-template-columns: 420px 1fr; 
@@ -252,11 +255,19 @@
             padding-bottom: 8px;
         }
 
-        .meta-item b { color: var(--text); font-weight: 500; }
+        .meta-item b { 
+            color: var(--text); 
+            font-weight: 500; 
+        }
 
         .lp-section-header { 
-            color: var(--dim); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; 
-            margin: 0 0 15px 0; border-bottom: 1px solid var(--line-grey); padding-bottom: 6px; 
+            color: var(--dim); 
+            font-size: 0.75rem; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            margin: 0 0 15px 0; 
+            border-bottom: 1px solid var(--line-grey); 
+            padding-bottom: 6px; 
         }
         
         .lp-table { width: 100%; border-collapse: collapse; text-align: left; }
@@ -271,7 +282,7 @@
         .team-name { color: var(--text); font-weight: 500; padding-right: 15px; }
         .team-period { color: var(--dim); font-size: 0.9rem; white-space: nowrap; text-align: right; }
 
-        /* --- CV Layout Additions --- */
+        /* --- CV LAYOUT ADDITIONS --- */
         .cv-timeline {
             display: flex;
             flex-direction: column;
@@ -343,7 +354,7 @@
             background: var(--cell);
         }
 
-        /* Mobile Responsiveness */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 1024px) {
             .main-grid { 
                 grid-template-columns: repeat(2, 1fr); 
@@ -401,202 +412,267 @@
     </div>
 
     <script>
-    const grid = document.querySelector('#grid');
-    const overlay = document.getElementById('overlay');
-    const overlayTitle = document.getElementById('overlayTitle');
-    const overlayBody = document.getElementById('overlayBody');
+        // --- 1. DOM ELEMENTS & STATE ---
+        const grid = document.querySelector('#grid');
+        const overlay = document.getElementById('overlay');
+        const overlayTitle = document.getElementById('overlayTitle');
+        const overlayBody = document.getElementById('overlayBody');
+        const closeBtn = document.getElementById('closeOverlay');
 
-    const contentData = { 
-        "ESPORTS": "", "ABOUT": "", "PROJECTS": "", "EDUCATION": "", "EXPERIENCE": "", "SKILLS": "", "CONTACT": "" 
-    };
+        const contentData = { 
+            "ESPORTS": "", 
+            "ABOUT": "", 
+            "PROJECTS": "", 
+            "EDUCATION": "", 
+            "EXPERIENCE": "", 
+            "SKILLS": "", 
+            "CONTACT": "" 
+        };
 
-    // --- GITHUB FETCH ---
-    async function initGithub() {
-        try {
-            const response = await fetch('./github.json');
-            if (!response.ok) throw new Error("github.json not found");
-            const repos = await response.json();
-            
-            // Filter out forks and sort by latest updated
-            const filteredRepos = repos
-                .filter(r => !r.fork)
-                .slice(0, 8);
+        // --- 2. DATA FETCHING ---
+        async function initGithub() {
+            try {
+                const res = await fetch('./github.json');
+                const repos = await res.json();
 
-            contentData["PROJECTS"] = `
-                <div class="project-grid">
-                    ${filteredRepos.map(repo => `
-                        <a href="${repo.html_url}" target="_blank" class="project-card">
-                            <div>
-                                <div class="project-name">${repo.name}</div>
-                                <p class="cv-desc" style="font-size: 0.9rem;">${repo.description || 'No description provided.'}</p>
-                            </div>
-                            <div class="project-meta">
-                                <span>● ${repo.language || 'Plain'}</span>
-                                <span>★ ${repo.stargazers_count}</span>
-                            </div>
-                        </a>
-                    `).join('')}
-                </div>
-            `;
-        } catch (e) {
-            console.warn("GitHub Sync Error:", e);
-            contentData["PROJECTS"] = "<p class='cv-desc'>Project data temporarily unavailable.</p>";
+                // Filter: No forks, only original work. Sort: Latest pushed first
+                const filtered = repos
+                    .filter(r => !r.fork)
+                    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+
+                contentData["PROJECTS"] = `
+                    <div class="project-grid">
+                        ${filtered.map(r => `
+                            <a href="${r.html_url}" target="_blank" class="project-card">
+                                <div>
+                                    <div class="project-name">${r.name.replace(/-/g, ' ')}</div>
+                                    <p class="cv-desc" style="font-size:0.9rem">${r.description || 'no description'}</p>
+                                </div>
+                                <div class="project-meta">
+                                    <span>● ${r.language || 'Binary'}</span>
+                                </div>
+                            </a>
+                        `).join('')}
+                    </div>`;
+            } catch (e) { 
+                console.error("GitHub Sync Error:", e);
+                contentData["PROJECTS"] = "Failed to sync repositories."; 
+            }
         }
-    }
 
-    // --- LIQUIPEDIA FETCH ---
-    async function initEsports() {
-        try {
-            const [rRes, hRes] = await Promise.all([
-                fetch(`https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra/Results&format=json&origin=*&prop=text`),
-                fetch(`https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra&format=json&origin=*&prop=text&section=0`)
-            ]);
-            const rData = await rRes.json(), hData = await hRes.json();
-            const parser = new DOMParser();
-            const rDoc = parser.parseFromString(rData.parse.text["*"], 'text/html');
-            const hDoc = parser.parseFromString(hData.parse.text["*"], 'text/html');
+        async function initEsports() {
+            try {
+                const [rRes, hRes] = await Promise.all([
+                    fetch(`https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra/Results&format=json&origin=*&prop=text`),
+                    fetch(`https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra&format=json&origin=*&prop=text&section=0`)
+                ]);
+                
+                const rData = await rRes.json();
+                const hData = await hRes.json();
+                const parser = new DOMParser();
+                const rDoc = parser.parseFromString(rData.parse.text["*"], 'text/html');
+                const hDoc = parser.parseFromString(hData.parse.text["*"], 'text/html');
 
-            const results = Array.from(rDoc.querySelectorAll('.table2__row--body'))
-                .map(row => {
-                    const cells = row.querySelectorAll('td');
-                    return {
-                        date: cells[0]?.innerText.trim() || "0000",
-                        name: cells[4]?.innerText.trim() || "Unknown",
-                        place: cells[1]?.innerText.trim() || "N/A",
-                        tier: cells[2]?.innerText.trim().toUpperCase() || ""
-                    };
-                })
-                .filter(r => r.tier.includes("A-TIER") || r.tier.includes("B-TIER"))
-                .sort((a, b) => b.date.localeCompare(a.date));
+                const results = Array.from(rDoc.querySelectorAll('.table2__row--body'))
+                    .map(row => {
+                        const cells = row.querySelectorAll('td');
+                        return {
+                            date: cells[0]?.innerText.trim() || "0000",
+                            name: cells[4]?.innerText.trim() || "Unknown",
+                            place: cells[1]?.innerText.trim() || "N/A",
+                            tier: cells[2]?.innerText.trim().toUpperCase() || ""
+                        };
+                    })
+                    .filter(r => r.tier.includes("A-TIER") || r.tier.includes("B-TIER"))
+                    .sort((a, b) => b.date.localeCompare(a.date));
 
-            const teamRows = [];
-            hDoc.querySelectorAll('.infobox-center table').forEach(tbl => {
-                tbl.querySelectorAll('tr').forEach(tr => {
-                    const period = tr.querySelector('.th-mono')?.innerText.trim() || "";
-                    const team = tr.querySelector('td:not(.th-mono)')?.innerText.trim() || "";
-                    if (period && team) teamRows.push({ period, team });
+                const teamRows = [];
+                hDoc.querySelectorAll('.infobox-center table').forEach(tbl => {
+                    tbl.querySelectorAll('tr').forEach(tr => {
+                        const period = tr.querySelector('.th-mono')?.innerText.trim() || "";
+                        const team = tr.querySelector('td:not(.th-mono)')?.innerText.trim() || "";
+                        if (period && team) teamRows.push({ period, team });
+                    });
                 });
-            });
-            const sortedTeams = teamRows.sort((a, b) => b.period.localeCompare(a.period)).slice(0, 5);
+                const sortedTeams = teamRows.sort((a, b) => b.period.localeCompare(a.period)).slice(0, 5);
 
-            const getInfoValue = (label) => {
-                const row = Array.from(hDoc.querySelectorAll('.infobox-description')).find(el => el.innerText.includes(label));
-                return row ? row.nextElementSibling.innerText.trim() : "N/A";
-            };
+                const getInfoValue = (label) => {
+                    const row = Array.from(hDoc.querySelectorAll('.infobox-description')).find(el => el.innerText.includes(label));
+                    return row ? row.nextElementSibling.innerText.trim() : "N/A";
+                };
 
-            contentData["ESPORTS"] = `
-                <div class="esports-layout">
-                    <div class="esports-sidebar">
-                        <div class="lp-profile-meta">
-                            <div class="meta-item"><span>STATUS</span><b>${getInfoValue("Status")}</b></div>
-                            <div class="meta-item"><span>ROLE</span><b>${getInfoValue("Role")}</b></div>
-                            <div class="meta-item"><span>TEAM</span><b>${getInfoValue("Team")}</b></div>
+                contentData["ESPORTS"] = `
+                    <div class="esports-layout">
+                        <div class="esports-sidebar">
+                            <div class="lp-profile-meta">
+                                <div class="meta-item"><span>STATUS</span><b>${getInfoValue("Status")}</b></div>
+                                <div class="meta-item"><span>ROLE</span><b>${getInfoValue("Role")}</b></div>
+                                <div class="meta-item"><span>TEAM</span><b>${getInfoValue("Team")}</b></div>
+                            </div>
+                            <div class="lp-section-header">Team History</div>
+                            <div class="team-list">
+                                ${sortedTeams.map(t => `
+                                    <div class="team-row">
+                                        <span class="team-name">${t.team}</span>
+                                        <span class="team-period">${t.period}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
                         </div>
-                        <div class="lp-section-header">Team History</div>
-                        <div class="team-list">
-                            ${sortedTeams.map(t => `<div class="team-row"><span class="team-name">${t.team}</span><span class="team-period">${t.period}</span></div>`).join('')}
+                        <div class="esports-main">
+                            <div class="lp-section-header">Results</div>
+                            <table class="lp-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-date">Date</th>
+                                        <th>Tournament</th>
+                                        <th style="text-align:right">Place</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${results.map(r => `
+                                        <tr>
+                                            <td class="col-date">${r.date}</td>
+                                            <td class="col-main">${r.name}</td>
+                                            <td class="col-end">${r.place}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-                    <div class="esports-main">
-                        <div class="lp-section-header">Results</div>
-                        <table class="lp-table">
-                            <thead><tr><th class="col-date">Date</th><th>Tournament</th><th style="text-align:right">Place</th></tr></thead>
-                            <tbody>${results.map(r => `<tr><td class="col-date">${r.date}</td><td class="col-main">${r.name}</td><td class="col-end">${r.place}</td></tr>`).join('')}</tbody>
-                        </table>
-                    </div>
-                </div>`;
-        } catch (e) { console.error("Liquipedia Sync Error:", e); }
-    }
-
-    // --- PRIVATE DATA FETCH ---
-    async function initLinkedin() {
-        try {
-            const response = await fetch('./cv.json');
-            if (!response.ok) throw new Error("Local cv.json not found.");
-            const items = await response.json();
-            if (!items || items.length === 0) return;
-            const data = items[0];
-            contentData["ABOUT"] = `<p class="cv-desc">${data.summary || data.headline || ''}</p>`;
-            contentData["CONTACT"] = `<p class="cv-desc">${data.city || ''}, ${data.country || ''}<br>LinkedIn: <a href="${data.url}" target="_blank" style="color:inherit">View Profile</a></p>`;
-
-            if (data.experiences) {
-                contentData["EXPERIENCE"] = `<div class="cv-timeline">` + 
-                    data.experiences.map(job => `
-                        <div class="cv-item">
-                            <div class="cv-date">${job.starts_at || ''} — ${job.ends_at || 'Present'}</div>
-                            <div class="cv-title">${job.title || ''}</div>
-                            <div class="cv-subtitle">${job.company_name || job.company || ''}</div>
-                            <p class="cv-desc">${job.description || ''}</p>
-                        </div>`).join('') + `</div>`;
+                    </div>`;
+            } catch (e) { 
+                console.error("Liquipedia Sync Error:", e); 
             }
-            if (data.education) {
-                contentData["EDUCATION"] = `<div class="cv-timeline">` + 
-                    data.education.map(edu => `
-                        <div class="cv-item">
-                            <div class="cv-date">${edu.starts_at || ''} — ${edu.ends_at || ''}</div>
-                            <div class="cv-title">${edu.degree_name || ''}</div>
-                            <div class="cv-subtitle">${edu.school || ''}</div>
-                        </div>`).join('') + `</div>`;
+        }
+
+        async function initLinkedin() {
+            try {
+                const response = await fetch('./cv.json');
+                if (!response.ok) throw new Error("Local cv.json not found.");
+                
+                const items = await response.json();
+                if (!items || items.length === 0) return;
+                
+                const data = items[0];
+                
+                contentData["ABOUT"] = `<p class="cv-desc">${data.summary || data.headline || ''}</p>`;
+                
+                contentData["CONTACT"] = `<p class="cv-desc">${data.city || 'Vienna'}, ${data.country || 'Austria'}<br>Local Time: <span id="vienna-clock" style="color:var(--text); font-weight:500;">Loading...</span><br><br>LinkedIn: <a href="${data.url}" target="_blank" style="color:inherit; text-decoration:underline;">View Profile</a></p>`;
+
+                if (data.experiences) {
+                    contentData["EXPERIENCE"] = `
+                        <div class="cv-timeline">
+                            ${data.experiences.map(job => `
+                                <div class="cv-item">
+                                    <div class="cv-date">${job.starts_at || ''} — ${job.ends_at || 'Present'}</div>
+                                    <div class="cv-title">${job.title || ''}</div>
+                                    <div class="cv-subtitle">${job.company_name || job.company || ''}</div>
+                                    <p class="cv-desc">${job.description || ''}</p>
+                                </div>
+                            `).join('')}
+                        </div>`;
+                }
+
+                if (data.education) {
+                    contentData["EDUCATION"] = `
+                        <div class="cv-timeline">
+                            ${data.education.map(edu => `
+                                <div class="cv-item">
+                                    <div class="cv-date">${edu.starts_at || ''} — ${edu.ends_at || ''}</div>
+                                    <div class="cv-title">${edu.degree_name || ''}</div>
+                                    <div class="cv-subtitle">${edu.school || ''}</div>
+                                </div>
+                            `).join('')}
+                        </div>`;
+                }
+
+                if (data.skills) {
+                    contentData["SKILLS"] = `
+                        <div class="skills-grid">
+                            ${data.skills.map(s => `<div class="skill-tag">${s}</div>`).join('')}
+                        </div>`;
+                }
+            } catch (error) {
+                console.warn("CV Data Sync:", error.message);
+                contentData["ABOUT"] = "Bio data currently unavailable.";
             }
-            if (data.skills) {
-                contentData["SKILLS"] = `<div class="skills-grid">` + 
-                    data.skills.map(s => `<div class="skill-tag">${s}</div>`).join('') + `</div>`;
+        }
+
+        // --- 3. UI HELPERS & EVENTS ---
+        const openOverlay = (title) => {
+            overlayTitle.textContent = title;
+            overlayBody.innerHTML = contentData[title] || "Data unavailable.";
+            overlay.classList.add('active');
+            history.pushState({ overlayOpen: true }, title);
+        };
+
+        const closeOverlay = (isPopstate = false) => {
+            overlay.classList.remove('active');
+            if (!isPopstate && history.state?.overlayOpen) {
+                history.back();
             }
-        } catch (error) {
-            console.warn("CV Data Sync:", error.message);
-            contentData["ABOUT"] = "Bio data currently unavailable.";
-        }
-    }
+        };
 
-    // Initialize all data sources
-    Promise.all([initEsports(), initLinkedin(), initGithub()]).finally(() => { 
-        document.body.classList.add('loaded'); 
-    });
+        // Attach click events to grid items
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.addEventListener('click', () => openOverlay(item.dataset.title));
+        });
 
-    // --- UI HELPERS ---
-    const openOverlay = (title) => {
-        overlayTitle.textContent = title;
-        overlayBody.innerHTML = contentData[title] || "Data unavailable.";
-        overlay.classList.add('active');
-        history.pushState({ overlayOpen: true }, title);
-    };
+        // Overlay close events
+        closeBtn.addEventListener('click', () => closeOverlay());
+        
+        window.addEventListener('keydown', (e) => { 
+            if (e.key === "Escape" && overlay.classList.contains('active')) {
+                closeOverlay();
+            }
+        });
 
-    const closeOverlay = (isPopstate = false) => {
-        overlay.classList.remove('active');
-        if (!isPopstate && history.state?.overlayOpen) {
-            history.back();
-        }
-    };
+        window.addEventListener('popstate', (event) => {
+            if (overlay.classList.contains('active')) {
+                closeOverlay(true); 
+            }
+        });
 
-    window.addEventListener('popstate', (event) => {
-        if (overlay.classList.contains('active')) {
-            closeOverlay(true); 
-        }
-    });
+        // Grid mouse movement effects
+        grid.addEventListener('mousemove', (e) => {
+            const r = grid.getBoundingClientRect();
+            grid.style.setProperty('--mouse-x', `${(e.clientX - r.left) / r.width * 100}%`);
+            grid.style.setProperty('--mouse-y', `${(e.clientY - r.top) / r.height * 100}%`);
+        });
 
-    document.querySelectorAll('.grid-item').forEach(item => {
-        item.onclick = () => openOverlay(item.dataset.title);
-    });
+        grid.addEventListener('mouseenter', () => {
+            grid.style.setProperty('--spotlight-color', '#333');
+        });
 
-    document.getElementById('closeOverlay').onclick = () => closeOverlay();
+        grid.addEventListener('mouseleave', () => {
+            grid.style.setProperty('--spotlight-color', 'var(--line-grey)');
+            grid.style.setProperty('--mouse-x', '-100%'); 
+            grid.style.setProperty('--mouse-y', '-100%');
+        });
 
-    window.onkeydown = e => { 
-        if (e.key === "Escape" && overlay.classList.contains('active')) {
-            closeOverlay();
-        }
-    };
+        // Live Vienna Clock Tick
+        setInterval(() => {
+            const clockEl = document.getElementById('vienna-clock');
+            if (clockEl) {
+                const now = new Date();
+                clockEl.textContent = now.toLocaleString('en-US', {
+                    timeZone: 'Europe/Vienna',
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+            }
+        }, 1000);
 
-    // --- MOUSE LOGIC ---
-    grid.onmousemove = e => {
-        const r = grid.getBoundingClientRect();
-        grid.style.setProperty('--mouse-x', `${(e.clientX - r.left) / r.width * 100}%`);
-        grid.style.setProperty('--mouse-y', `${(e.clientY - r.top) / r.height * 100}%`);
-    };
-    grid.onmouseenter = () => grid.style.setProperty('--spotlight-color', '#333');
-    grid.onmouseleave = () => {
-        grid.style.setProperty('--spotlight-color', 'var(--line-grey)');
-        grid.style.setProperty('--mouse-x', '-100%'); grid.style.setProperty('--mouse-y', '-100%');
-    };
-</script>
+        // --- 4. INITIALIZATION ---
+        Promise.all([initEsports(), initLinkedin(), initGithub()]).finally(() => { 
+            document.body.classList.add('loaded'); 
+        });
+    </script>
 </body>
 </html>
