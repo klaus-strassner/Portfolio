@@ -1,0 +1,92 @@
+[{
+  "full_name": "Klaus Strassner",
+  "first_name": "Klaus",
+  "last_name": "Strassner",
+  "headline": "Professional Esports Athlete | Overwatch 2",
+  "summary": "Pursue what excites you, set ambitious goals, work hard to achieve them, and inspire others along the way. These principles guide me in life, shaping how I navigate challenges and opportunities.\n\nBeyond eSports, I’m interested in computer engineering, hardware, and high-performance technologies. I enjoy exploring how precision, quality, and optimization can elevate performance - not just in machines but in humans too. I firmly believe that with the right mindset, consistent effort, and a commitment to growth, anything is achievable.",
+  "country": "Austria",
+  "city": "Vienna",
+  "profile_pic_url": "https://storage.googleapis.com/linkedin_profile_picture/klaus-strassner.jpeg",
+  "follower_count": 371,
+  "public_identifier": "klaus-strassner",
+  "open_to_work": false,
+  "show_verification_badge": true,
+  "skills": [
+    "C++",
+    "C#",
+    "SQL",
+    ".NET Framework",
+    "Git",
+    "Linux",
+    "Theoretical Computer Science",
+    "Computer Engineering",
+    "Programming",
+    "Business Administration"
+  ],
+  "certifications": [],
+  "experiences": [
+    {
+      "title": "Professional Esports Athlete",
+      "company": null,
+      "description": "Competing in the Esports Title Overwatch 2. Playing in Europe’s highest Leagues and participating in international Tournaments.",
+      "starts_at": "2024"
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "CHERRY",
+      "description": "Developed a C++ prototype for OpenRGB to detect their keyboards and control lighting effects, communicating via Protocol Buffers over a CDC ACM connection.",
+      "starts_at": "2026",
+      "ends_at": "2026"
+    },
+    {
+      "title": "Civil Servant",
+      "company": "Arbeitskreis Noah",
+      "description": "Supported high-risk teenagers navigate towards societal integration, by helping them regain perspective and develop essential life skills.",
+      "starts_at": "2023",
+      "ends_at": "2024"
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "Youscrim GmbH",
+      "description": "Developed scripts for internal tools and configured a Linux server environment for hosting and deployment using C# and SQL.",
+      "starts_at": "2022",
+      "ends_at": "2022"
+    },
+    {
+      "title": "Technical Support Intern",
+      "company": "HELFERLINE",
+      "description": "Coordinated customer requests with technicians, provided remote tech support, assisted with repairs and personalized advice in a service shop.",
+      "starts_at": "2021",
+      "ends_at": "2021"
+    }
+  ],
+  "education": [
+    {
+      "degree_name": "Bachelor of Applied Science - BASc, Business Informatics",
+      "school": "Universität Wien | University of Vienna",
+      "starts_at": "2025",
+      "ends_at": "2028"
+    },
+    {
+      "degree_name": "Esports Program",
+      "school": "AhlmanEdu",
+      "starts_at": "2024",
+      "ends_at": "2025"
+    },
+    {
+      "degree_name": "Information Technology",
+      "school": "Schulzentrum HTL HAK Ungargasse",
+      "starts_at": "2018",
+      "ends_at": "2023"
+    }
+  ],
+  "background_cover_image_url": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1775692800&v=beta&t=UEGCXFFhoAb8oWFKi0N1U-0wuGixQvnmSrHlC2RT9fw",
+  "languages": [
+    "English",
+    "German"
+  ],
+  "personal_emails": [],
+  "personal_numbers": [],
+  "url": "https://www.linkedin.com/in/klaus-strassner",
+  "id": "1"
+}]
