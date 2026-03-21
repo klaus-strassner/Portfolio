@@ -31,10 +31,11 @@ jobs:
       - name: Trigger Fresh LinkedIn Scrape
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
-          curl -sfX POST "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs?token=${{ secrets.APIFY_TOKEN }}&wait=300" \
-            -H "Content-Type: application/json" > run_info.json
+          curl -sfX POST "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/run-sync-get-dataset-items?token=${{ secrets.APIFY_TOKEN }}&timeout=300" \
+               -H "Content-Type: application/json" > linkedin.json
 
       - name: Fetch Last Cached Data
+        if: github.event_name == 'push'
         run: |
           echo "Fetching last cached data from Apify..."
           curl -sf "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > linkedin.json
