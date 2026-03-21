@@ -6,37 +6,69 @@
     <title>Klaus Strassner</title>
     <style>
         :root {
-            --bg: #000; --cell: #0a0a0a; --text: #fff; --dim: #444; 
-            --line-grey: #1a1a1a; --spotlight-color: #1a1a1a; --thickness: 1px;
-            --title-idle: 0.3; --title-hover: 1.0; --mouse-x: -100%; --mouse-y: -100%;
+            --bg: #000; 
+            --cell: #0a0a0a; 
+            --text: #fff; 
+            --dim: #444; 
+            --line-grey: #1a1a1a; 
+            --spotlight-color: #1a1a1a; 
+            --thickness: 1px;
+            --mouse-x: -100%; 
+            --mouse-y: -100%;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
         body {
-            background: var(--bg); color: var(--text);
+            background: var(--bg); 
+            color: var(--text);
             font-family: 'JetBrains Mono', monospace;
-            height: 100dvh; overflow: hidden; 
+            height: 100dvh; 
+            overflow: hidden; /* Enforces no scrolling on the main page */
         }
 
         /* Loading Screen */
         #loader {
-            position: fixed; inset: 0; z-index: 100;
-            background: var(--bg); display: flex;
-            align-items: center; justify-content: center;
-            letter-spacing: 4px; font-size: 0.8rem; color: var(--dim);
+            position: fixed; 
+            inset: 0; 
+            z-index: 100;
+            background: var(--bg); 
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            letter-spacing: 4px; 
+            font-size: 0.8rem; 
+            color: var(--dim);
             transition: opacity 0.8s ease, visibility 0.8s;
         }
-        body.loaded #loader { opacity: 0; visibility: hidden; }
+
+        body.loaded #loader { 
+            opacity: 0; 
+            visibility: hidden; 
+        }
 
         .main-grid {
-            display: grid; width: 100vw; height: 100dvh;
-            grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr);
+            display: grid; 
+            width: 100vw; 
+            height: 100dvh;
+            grid-template-columns: repeat(4, 1fr); 
+            grid-template-rows: repeat(3, 1fr);
             gap: var(--thickness);
             background: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), var(--spotlight-color), var(--line-grey));
-            background-color: var(--line-grey); transition: background 0.2s ease;
-            opacity: 0; transform: scale(0.98);
-            transition: opacity 1s ease, transform 1s ease;
+            background-color: var(--line-grey);
+            opacity: 0; 
+            transform: scale(0.98);
+            transition: opacity 1s ease, transform 1s ease, background 0.2s ease;
         }
-        body.loaded .main-grid { opacity: 1; transform: scale(1); }
+
+        body.loaded .main-grid { 
+            opacity: 1; 
+            transform: scale(1); 
+        }
 
         .esports { grid-area: 1 / 1 / 3 / 3; }
         .about { grid-area: 1 / 3 / 2 / 5; }
@@ -44,13 +76,20 @@
         .quad { grid-area: span 1 / span 1; }
 
         .grid-item {
-            position: relative; background: var(--cell); text-decoration: none;
-            color: inherit; display: flex; flex-direction: column;
-            justify-content: flex-end; padding: 40px; overflow: hidden; cursor: pointer;
-            opacity: 0; transform: translateY(10px);
+            position: relative; 
+            background: var(--cell); 
+            text-decoration: none;
+            color: inherit; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: flex-end; 
+            padding: 40px; 
+            overflow: hidden; 
+            cursor: pointer;
+            opacity: 0; 
+            transform: translateY(10px);
         }
 
-        /* Staggered Entrance */
         body.loaded .grid-item { 
             animation: fadeInItem 0.6s ease forwards; 
         }
@@ -59,95 +98,545 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .content { position: relative; z-index: 2; pointer-events: none; }
+        .content { 
+            position: relative; 
+            z-index: 2; 
+            pointer-events: none; 
+        }
+        
+        /* Titles Opacity Logic */
         .title {
-            text-transform: uppercase; font-size: 2.2rem; font-weight: 500;
-            letter-spacing: -1px; margin-bottom: 8px; opacity: var(--title-idle);
-            transition: opacity 0.4s ease;
+            text-transform: uppercase; 
+            font-size: 2.2rem; 
+            font-weight: 500;
+            letter-spacing: -1px; 
+            margin-bottom: 8px;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
         }
-        .esports .title { font-size: 4.8rem; letter-spacing: -2px; margin-bottom: 12px; }
-        .desc { font-size: 1.2rem; color: var(--dim); text-transform: lowercase; visibility: hidden; }
-        .grid-item:hover .title { opacity: var(--title-hover); }
-        .grid-item:focus-visible { box-shadow: inset 0 0 0 2px var(--text); }
-        .grid-item.decrypted .desc { visibility: visible; }
 
-        @media (max-width: 1024px) {
-            .main-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); background: var(--line-grey); }
-            .esports { grid-area: 1 / 1 / 2 / 3; }
-            .about, .projects, .quad { grid-area: auto / span 1; }
-            .desc { visibility: visible; }
+        .grid-item:hover .title {
+            opacity: 1;
         }
-        @media (max-width: 600px) {
-            .grid-item { padding: 30px; }
-            .esports .title { font-size: 2.8rem; }
-            .title { font-size: 1.6rem; }
-            .desc { font-size: 1rem; }
+
+        .esports .title { 
+            font-size: 4.8rem; 
+            letter-spacing: -2px; 
+            margin-bottom: 12px; 
+        }
+
+        .desc { 
+            font-size: 1.2rem; 
+            color: var(--dim); 
+            text-transform: lowercase; 
+        }
+
+        /* Fullscreen Overlay */
+        .overlay {
+            position: fixed; 
+            inset: 0; 
+            background: var(--bg); 
+            z-index: 2000;
+            display: flex; 
+            flex-direction: column; 
+            padding: 5vh 6vw;
+            transform: translateY(100%); 
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto; /* Overlay itself can scroll */
+        }
+
+        .overlay.active { 
+            transform: translateY(0); 
+        }
+
+        .overlay-header { 
+            display: flex; 
+            justify-content: flex-end; 
+            margin-bottom: 30px; 
+        }
+
+        .close-btn { 
+            background: none; 
+            border: none; 
+            color: var(--dim); 
+            font-family: inherit; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            font-size: 0.75rem; 
+            letter-spacing: 1px; 
+            transition: color 0.3s ease; 
+        }
+
+        .close-btn:hover { 
+            color: var(--text); 
+        }
+
+        #overlayTitle { 
+            font-size: clamp(2.5rem, 8vw, 6rem); 
+            text-transform: uppercase; 
+            font-weight: 500; 
+            margin-bottom: 1rem; 
+            letter-spacing: -2px; 
+        }
+        
+        #overlayBody { 
+            max-width: 1300px; 
+            width: 100%;
+            font-size: 1.1rem; 
+            line-height: 1.6; 
+            color: #ccc; 
+        }
+
+        /* Esports Specific Layout */
+        .esports-layout {
+            display: grid;
+            grid-template-columns: 420px 1fr; 
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Profile Meta Styling */
+        .lp-profile-meta { 
+            display: flex; 
+            flex-direction: column;
+            gap: 15px; 
+            margin-bottom: 35px; 
+        }
+
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--dim);
+            border-bottom: 1px solid var(--line-grey);
+            padding-bottom: 8px;
+        }
+
+        .meta-item b { 
+            color: var(--text); 
+            font-weight: 500; 
+        }
+
+        /* General Esports Elements */
+        .lp-section-header { 
+            color: var(--dim); 
+            font-size: 0.75rem; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            margin: 0 0 15px 0; 
+            border-bottom: 1px solid var(--line-grey); 
+            padding-bottom: 6px; 
+        }
+        
+        .lp-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            text-align: left; 
+        }
+
+        .lp-table th { 
+            color: var(--dim); 
+            font-weight: normal; 
+            font-size: 0.75rem; 
+            padding-bottom: 10px; 
+            text-transform: uppercase; 
+        }
+
+        .lp-table td { 
+            padding: 8px 0; 
+            border-bottom: 1px solid #0f0f0f; 
+        }
+        
+        /* Reverted Table Columns */
+        .col-date { width: 15%; color: var(--dim); }
+        .col-main { width: 70%; color: var(--text); }
+        .col-end { width: 15%; text-align: right; color: var(--text); }
+
+        .team-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: baseline;
+            padding: 6px 0; 
+            border-bottom: 1px solid #0f0f0f; 
+        }
+
+        .team-name { 
+            color: var(--text); 
+            font-weight: 500; 
+            padding-right: 15px; 
+        }
+        
+        .team-period { 
+            color: var(--dim); 
+            font-size: 0.9rem; 
+            white-space: nowrap; 
+            text-align: right; 
+        }
+
+        /* --- New CV Specific Layout --- */
+        .cv-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 800px;
+        }
+
+        .cv-item {
+            display: flex;
+            flex-direction: column;
+            border-left: 2px solid var(--line-grey);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .cv-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            background: var(--dim);
+            border-radius: 50%;
+        }
+
+        .cv-date {
+            font-size: 0.85rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .cv-title {
+            font-size: 1.5rem;
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .cv-subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .cv-desc {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #aaa;
+            white-space: pre-wrap;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 800px;
+        }
+
+        .skill-tag {
+            border: 1px solid var(--line-grey);
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--cell);
+        }
+
+        /* Fixed Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .main-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                /* 5 rows to ensure all 7 blocks fit perfectly without overflowing the screen */
+                grid-template-rows: repeat(5, 1fr); 
+            }
+            
+            /* Resetting grid-areas so they don't force columns that don't exist */
+            .esports { grid-area: 1 / 1 / 2 / 3; }
+            .about { grid-area: 2 / 1 / 3 / 3; }
+            .projects { grid-area: 3 / 1 / 4 / 3; }
+            .quad { grid-area: auto; } /* Lets the last 4 boxes auto-flow into the 2 remaining rows */
+
+            .overlay { padding: 25px 15px; } 
+            .col-date { display: none; }
+            
+            /* Stack overlay columns on mobile */
+            .esports-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .lp-section-header {
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="loader">LOADING...</div>
+    <div id="loader">SYNCING DATA...</div>
 
     <main class="main-grid" id="grid">
-        <div class="grid-item esports" data-title="ESPORTS" style="animation-delay: 0.1s;"><div class="content"><h2 class="title"></h2><p class="desc">my purpose</p></div></div>
-        <div class="grid-item about" data-title="ABOUT" style="animation-delay: 0.2s;"><div class="content"><h2 class="title"></h2><p class="desc">my story</p></div></div>
-        <div class="grid-item projects" data-title="PROJECTS" style="animation-delay: 0.3s;"><div class="content"><h2 class="title"></h2><p class="desc">my passion</p></div></div>
-        <div class="grid-item quad" data-title="EDUCATION" style="animation-delay: 0.4s;"><div class="content"><h2 class="title"></h2><p class="desc">my learnings</p></div></div>
-        <div class="grid-item quad" data-title="EXPERIENCE" style="animation-delay: 0.5s;"><div class="content"><h2 class="title"></h2><p class="desc">my journey</p></div></div>
-        <div class="grid-item quad" data-title="SKILLS" style="animation-delay: 0.6s;"><div class="content"><h2 class="title"></h2><p class="desc">my knowledge</p></div></div>
-        <div class="grid-item quad" data-title="CONTACT" style="animation-delay: 0.7s;"><div class="content"><h2 class="title"></h2><p class="desc">get in touch</p></div></div>
+        <div class="grid-item esports" data-title="ESPORTS">
+            <div class="content"><h2 class="title">ESPORTS</h2><p class="desc">liquipedia live</p></div>
+        </div>
+        <div class="grid-item about" data-title="ABOUT">
+            <div class="content"><h2 class="title">ABOUT</h2><p class="desc"></p></div>
+        </div>
+        <div class="grid-item projects" data-title="PROJECTS">
+            <div class="content"><h2 class="title">PROJECTS</h2><p class="desc"></p></div>
+        </div>
+        <div class="grid-item quad" data-title="EDUCATION">
+            <div class="content"><h2 class="title">EDUCATION</h2><p class="desc"></p></div>
+        </div>
+        <div class="grid-item quad" data-title="EXPERIENCE">
+            <div class="content"><h2 class="title">EXPERIENCE</h2><p class="desc"></p></div>
+        </div>
+        <div class="grid-item quad" data-title="SKILLS">
+            <div class="content"><h2 class="title">SKILLS</h2><p class="desc"></p></div>
+        </div>
+        <div class="grid-item quad" data-title="CONTACT">
+            <div class="content"><h2 class="title">CONTACT</h2><p class="desc"></p></div>
+        </div>
     </main>
 
-    <script>
-        const grid = document.querySelector('#grid'), charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    <div id="overlay" class="overlay">
+        <div class="overlay-header">
+            <button class="close-btn" id="closeOverlay">close / ESC</button>
+        </div>
+        <h2 id="overlayTitle"></h2>
+        <div id="overlayBody"></div>
+    </div>
 
-        // Handle Window Load
-        window.onload = () => {
-            setTimeout(() => document.body.classList.add('loaded'), 500);
+    <script>
+        const grid = document.querySelector('#grid');
+        const overlay = document.getElementById('overlay');
+        const overlayTitle = document.getElementById('overlayTitle');
+        const overlayBody = document.getElementById('overlayBody');
+        const closeBtn = document.getElementById('closeOverlay');
+
+        // Note: Default text updated to reflect loading states for CV modules
+        const contentData = { 
+            "ESPORTS": "", 
+            "ABOUT": "Standard biography details.", 
+            "PROJECTS": "Featured projects and work.", 
+            "EDUCATION": "Loading education...", 
+            "EXPERIENCE": "Loading experience...", 
+            "SKILLS": "Loading skills...", 
+            "CONTACT": "Social media and email." 
         };
 
+        // --- LIQUIPEDIA FETCH ---
+        async function initEsports() {
+            try {
+                // FETCH: Results & Profile
+                const [rRes, hRes] = await Promise.all([
+                    fetch(`https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra/Results&format=json&origin=*&prop=text`),
+                    fetch(`https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra&format=json&origin=*&prop=text&section=0`)
+                ]);
+
+                const rData = await rRes.json();
+                const hData = await hRes.json();
+                
+                const parser = new DOMParser();
+                const rDoc = parser.parseFromString(rData.parse.text["*"], 'text/html');
+                const hDoc = parser.parseFromString(hData.parse.text["*"], 'text/html');
+
+                // 1. Results Processing (A & B Tier, newest first)
+                const results = Array.from(rDoc.querySelectorAll('.table2__row--body'))
+                    .map(row => {
+                        const cells = row.querySelectorAll('td');
+                        return {
+                            date: cells[0]?.innerText.trim() || "0000-00-00",
+                            name: cells[4]?.innerText.trim() || "Unknown",
+                            place: cells[1]?.innerText.trim() || "N/A",
+                            tier: cells[2]?.innerText.trim().toUpperCase() || ""
+                        };
+                    })
+                    .filter(r => r.tier.includes("A-TIER") || r.tier.includes("B-TIER"))
+                    .sort((a, b) => b.date.localeCompare(a.date));
+
+                // 2. Team History Processing (Strict chronological sort newest first)
+                const teamRows = [];
+                hDoc.querySelectorAll('.infobox-center table').forEach(tbl => {
+                    tbl.querySelectorAll('tr').forEach(tr => {
+                        const period = tr.querySelector('.th-mono')?.innerText.trim() || "";
+                        const team = tr.querySelector('td:not(.th-mono)')?.innerText.trim() || "";
+                        
+                        if (period && team) {
+                            teamRows.push({ period, team });
+                        }
+                    });
+                });
+                const sortedTeams = teamRows.sort((a, b) => b.period.localeCompare(a.period)).slice(0, 5);
+
+                // 3. Metadata Processing
+                const getInfoValue = (label) => {
+                    const row = Array.from(hDoc.querySelectorAll('.infobox-description'))
+                        .find(el => el.innerText.includes(label));
+                    return row ? row.nextElementSibling.innerText.trim() : "N/A";
+                };
+
+                // 4. Construct Final HTML (Two-Column Layout)
+                contentData["ESPORTS"] = `
+                    <div class="esports-layout">
+                        
+                        <div class="esports-sidebar">
+                            <div class="lp-profile-meta">
+                                <div class="meta-item"><span>STATUS</span><b>${getInfoValue("Status")}</b></div>
+                                <div class="meta-item"><span>ROLE</span><b>${getInfoValue("Role")}</b></div>
+                                <div class="meta-item"><span>TEAM</span><b>${getInfoValue("Team")}</b></div>
+                            </div>
+
+                            <div class="lp-section-header">Recent Team History</div>
+                            <div class="team-list">
+                                ${sortedTeams.map(t => `
+                                    <div class="team-row">
+                                        <span class="team-name">${t.team}</span>
+                                        <span class="team-period">${t.period}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="esports-main">
+                            <div class="lp-section-header">Recent Major Results</div>
+                            <table class="lp-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-date">Date</th>
+                                        <th>Tournament</th>
+                                        <th style="text-align:right">Place</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${results.map(r => `
+                                        <tr>
+                                            <td class="col-date">${r.date}</td>
+                                            <td class="col-main">${r.name}</td>
+                                            <td class="col-end">${r.place}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                `;
+
+            } catch (e) {
+                contentData["ESPORTS"] = "Liquipedia sync failed. Data currently offline.";
+            } 
+        }
+
+        // --- LINKEDIN CV FETCH ---
+        async function initCV() {
+            try {
+                // This fetches the JSON file your GitHub Action created
+                const response = await fetch('./cv.json');
+                
+                if (!response.ok) {
+                    throw new Error("Awaiting GitHub Action to generate cv.json...");
+                }
+
+                const data = await response.json();
+
+                // 1. Format Experience
+                if (data.experiences && data.experiences.length > 0) {
+                    contentData["EXPERIENCE"] = `<div class="cv-timeline">` + 
+                        data.experiences.map(job => {
+                            const start = job.starts_at ? `${job.starts_at.month}/${job.starts_at.year}` : '';
+                            const end = job.ends_at ? `${job.ends_at.month}/${job.ends_at.year}` : 'Present';
+                            return `
+                                <div class="cv-item">
+                                    <div class="cv-date">${start} — ${end}</div>
+                                    <div class="cv-title">${job.title}</div>
+                                    <div class="cv-subtitle">${job.company}</div>
+                                    <div class="cv-desc">${job.description || ''}</div>
+                                </div>
+                            `;
+                        }).join('') + `</div>`;
+                } else {
+                    contentData["EXPERIENCE"] = "No experience data found.";
+                }
+
+                // 2. Format Education
+                if (data.education && data.education.length > 0) {
+                    contentData["EDUCATION"] = `<div class="cv-timeline">` + 
+                        data.education.map(edu => {
+                            const start = edu.starts_at ? edu.starts_at.year : '';
+                            const end = edu.ends_at ? edu.ends_at.year : 'Present';
+                            return `
+                                <div class="cv-item">
+                                    <div class="cv-date">${start} — ${end}</div>
+                                    <div class="cv-title">${edu.degree_name || 'Degree'}</div>
+                                    <div class="cv-subtitle">${edu.school} • ${edu.field_of_study || ''}</div>
+                                </div>
+                            `;
+                        }).join('') + `</div>`;
+                } else {
+                    contentData["EDUCATION"] = "No education data found.";
+                }
+
+                // 3. Format Skills
+                if (data.skills && data.skills.length > 0) {
+                    contentData["SKILLS"] = `<div class="skills-grid">` + 
+                        data.skills.map(skill => `<div class="skill-tag">${skill}</div>`).join('') 
+                        + `</div>`;
+                } else {
+                    contentData["SKILLS"] = "No skills data found.";
+                }
+
+            } catch (error) {
+                console.error("CV Load Error:", error);
+                const errorMsg = `<p style="color:var(--dim)">${error.message}</p>`;
+                contentData["EXPERIENCE"] = errorMsg;
+                contentData["EDUCATION"] = errorMsg;
+                contentData["SKILLS"] = errorMsg;
+            }
+        }
+
+        // Mouse Spotlight
         grid.onmousemove = e => {
             const r = grid.getBoundingClientRect();
             grid.style.setProperty('--mouse-x', `${(e.clientX - r.left) / r.width * 100}%`);
             grid.style.setProperty('--mouse-y', `${(e.clientY - r.top) / r.height * 100}%`);
         };
-        grid.onmouseenter = () => grid.style.setProperty('--spotlight-color', '#555');
+        
+        grid.onmouseenter = () => grid.style.setProperty('--spotlight-color', '#333');
+        
         grid.onmouseleave = () => {
             grid.style.setProperty('--spotlight-color', 'var(--line-grey)');
-            grid.style.setProperty('--mouse-x', '-100%'); grid.style.setProperty('--mouse-y', '-100%');
+            grid.style.setProperty('--mouse-x', '-100%'); 
+            grid.style.setProperty('--mouse-y', '-100%');
         };
 
-        function setupScrambler(item) {
-            const el = item.querySelector('.title'), final = item.dataset.title, chars = final.split("");
-            let interval = null, cur = chars.map(() => Math.floor(Math.random() * charset.length));
-            el.textContent = cur.map(i => charset[i]).join("");
-
-            return (isDec) => {
-                clearInterval(interval);
-                if (!isDec) item.classList.remove('decrypted');
-                const target = isDec ? chars.map(c => charset.indexOf(c)) : chars.map(() => Math.floor(Math.random() * charset.length));
-                const speeds = chars.map(() => Math.floor(Math.random() * 3) + 2);
-
-                interval = setInterval(() => {
-                    let done = true;
-                    cur = cur.map((v, i) => {
-                        if (v === target[i]) return v;
-                        done = false;
-                        return (v + Math.min((target[i] - v + charset.length) % charset.length, speeds[i])) % charset.length;
-                    });
-                    el.textContent = cur.map(i => charset[i]).join("");
-                    if (done) { clearInterval(interval); if (isDec) item.classList.add('decrypted'); }
-                }, 16);
+        // Grid Click Handling
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.onclick = () => {
+                const title = item.dataset.title;
+                overlayTitle.textContent = title;
+                
+                // Set innerHTML for everything so HTML tags in contentData render correctly
+                overlayBody.innerHTML = contentData[title] || "";
+                
+                overlay.classList.add('active');
             };
-        }
+        });
 
-        if (window.matchMedia('(hover: hover)').matches) {
-            document.querySelectorAll('.grid-item').forEach(item => {
-                const run = setupScrambler(item);
-                item.onmouseenter = () => run(true);
-                item.onmouseleave = () => run(false);
-            });
-        }
+        const close = () => overlay.classList.remove('active');
+        closeBtn.onclick = close;
+        
+        window.onkeydown = e => { 
+            if (e.key === "Escape") close(); 
+        };
+
+        // Initialize BOTH Liquipedia and LinkedIn data before removing the loader
+        Promise.all([initEsports(), initCV()]).finally(() => {
+            document.body.classList.add('loaded');
+        });
     </script>
 </body>
 </html>

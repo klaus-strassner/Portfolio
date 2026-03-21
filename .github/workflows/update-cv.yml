@@ -1,0 +1,37 @@
+name: Update Dynamic CV
+
+on:
+  schedule:
+    # Runs at 00:00 UTC on the 1st day of every month
+    - cron: '0 0 1 * *'
+  
+  # Allows manual triggers
+  workflow_dispatch: 
+
+permissions:
+  contents: write
+
+jobs:
+  update-cv-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Fetch Latest LinkedIn Data
+        env:
+          PROXYCURL_API_KEY: ${{ secrets.PROXYCURL_API_KEY }}
+        run: node fetch-cv.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add cv.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update CV data from LinkedIn" && git push)
