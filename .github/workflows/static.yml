@@ -1,4 +1,4 @@
-name: Sync, Commit, and Deploy CV
+name: Sync and Deploy CV
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Changed to 'write' so it can save the file to your repo
+  contents: write
   pages: write
   id-token: write
 
@@ -23,36 +23,20 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-        with:
-          # Fetches full history so we can commit back to the branch
-          fetch-depth: 0 
 
-      - name: Fetch and Process Data
+      - name: Fetch Raw Data from Apify
         run: |
-          # Fetch the latest successful run from Apify
-          curl -s "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > raw_cv.json
+          # Grabs the last successful run and saves it exactly as is
+          curl -s "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > cv.json
           
-          # Ensure it's a single object (grabs the first item from the Apify array)
-          python3 -c "import json, os; 
-          if os.path.exists('raw_cv.json'):
-              with open('raw_cv.json') as f:
-                  data = json.load(f)
-                  with open('cv.json', 'w') as out:
-                      json.dump(data[0] if isinstance(data, list) and len(data) > 0 else data, out, indent=2)
-          "
-          
-          # Clean up temporary file
-          rm raw_cv.json
-          
-          # Create .nojekyll just in case
+          # Ensures GitHub Pages doesn't ignore the file
           touch .nojekyll
 
       - name: Commit Updated CV
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "data: sync latest linkedin snapshot from apify"
+          commit_message: "data: raw linkedin sync from apify"
           file_pattern: 'cv.json'
-          # If the file hasn't changed since last time, it won't commit
           skip_dirty_check: false 
 
       - name: Setup Pages
