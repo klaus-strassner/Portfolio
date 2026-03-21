@@ -1,3 +1,299 @@
 [{
-  "errorMessage": "Monthly Limit has been reached for your FREE account. Please upgrade for more than 10 runs per month."
+  "created": 1735935419303,
+  "trackingId": "+FkFqCrFQk6YH6qh1EFr0Q==",
+  "firstName": "Klaus",
+  "lastName": "Strassner",
+  "pronoun": null,
+  "versionTag": "3872476049",
+  "headline": "Professional Esports Athlete | Overwatch 2",
+  "publicIdentifier": "klaus-strassner",
+  "creator": false,
+  "influencer": false,
+  "premium": false,
+  "connectionType": "OUT_OF_NETWORK",
+  "birthDate": null,
+  "id": "1447487832",
+  "profileId": "ACoAAFZG6VgBSbrqElT_KIZXJLOK5k7n5WHyou8",
+  "pictureUrl": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1775692800&v=beta&t=EWL8ba6PTmswKAttmY7AADKLGXvwNKX9buVchsBN7vI",
+  "coverImageUrl": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1775692800&v=beta&t=UEGCXFFhoAb8oWFKi0N1U-0wuGixQvnmSrHlC2RT9fw",
+  "countryCode": "AT",
+  "geoUrn": "urn:li:fsd_geo:105890822",
+  "geoLocationName": "Vienna, Vienna, Austria",
+  "geoCountryName": "Austria",
+  "jobTitle": "Professional Esports Athlete",
+  "summary": "Pursue what excites you, set ambitious goals, work hard to achieve them, and inspire others along the way. These principles guide me in life, shaping how I navigate challenges and opportunities.\n\nBeyond eSports, I’m interested in computer engineering, hardware, and high-performance technologies. I enjoy exploring how precision, quality, and optimization can elevate performance - not just in machines but in humans too. I firmly believe that with the right mindset, consistent effort, and a commitment to growth, anything is achievable.",
+  "positions": [
+    {
+      "title": "Professional Esports Athlete",
+      "locationName": "",
+      "timePeriod": {
+        "startDate": {
+          "month": 3,
+          "year": 2024
+        },
+        "endDate": null
+      },
+      "totalDuration": "2 yrs 1 mo",
+      "description": "Competing in Overwatch - playing in Europe’s highest leagues, participating in international tournaments and representing Austria in the World Cup.",
+      "company": {
+        "url": "",
+        "name": "Freelance"
+      }
+    },
+    {
+      "title": "Software Engineer Intern",
+      "locationName": "Vienna, Austria · On-site",
+      "timePeriod": {
+        "startDate": {
+          "month": 2,
+          "year": 2026
+        },
+        "endDate": {
+          "month": 2,
+          "year": 2026
+        }
+      },
+      "totalDuration": "1 mo",
+      "description": "Developed a C++ prototype for OpenRGB to detect their keyboards and control lighting effects, communicating via Protocol Buffers over a CDC ACM connection.",
+      "insights": "Skills: C++ · Git",
+      "company": {
+        "url": "https://www.linkedin.com/company/18148/",
+        "name": "CHERRY",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1775692800&v=beta&t=lVEyv1DuZpNN5jtR21IPBs5WwjJwKm_azw2SJW5sfCs"
+      }
+    },
+    {
+      "title": "Civil Servant",
+      "locationName": "Vienna, Austria · On-site",
+      "timePeriod": {
+        "startDate": {
+          "month": 10,
+          "year": 2023
+        },
+        "endDate": {
+          "month": 7,
+          "year": 2024
+        }
+      },
+      "totalDuration": "10 mos",
+      "description": "Supported high-risk teenagers navigate towards societal integration, by helping them regain perspective and develop essential life skills.",
+      "company": {
+        "url": "",
+        "name": "Arbeitskreis Noah"
+      }
+    },
+    {
+      "title": "Software Engineer Intern",
+      "locationName": "Cologne, North Rhine-Westphalia, Germany · Remote",
+      "timePeriod": {
+        "startDate": {
+          "month": 7,
+          "year": 2022
+        },
+        "endDate": {
+          "month": 8,
+          "year": 2022
+        }
+      },
+      "totalDuration": "2 mos",
+      "description": "Developed scripts for internal tools and configured a Linux server environment for hosting and deployment using C# and SQL.",
+      "insights": "Skills: C# · SQL · Linux",
+      "company": {
+        "url": "https://www.linkedin.com/company/86185402/",
+        "name": "Youscrim GmbH",
+        "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1775692800&v=beta&t=mNk5v9OW1PHbzS_QRMabzEAMxKDfDIqyu03doZ9IL6k"
+      }
+    },
+    {
+      "title": "Technical Support Intern",
+      "locationName": "Vienna, Austria · On-site",
+      "timePeriod": {
+        "startDate": {
+          "month": 7,
+          "year": 2021
+        },
+        "endDate": {
+          "month": 8,
+          "year": 2021
+        }
+      },
+      "totalDuration": "2 mos",
+      "description": "Coordinated customer requests with technicians, provided remote tech support, assisted with repairs and personalized advice in a service shop.",
+      "company": {
+        "url": "https://www.linkedin.com/company/11103755/",
+        "name": "HELFERLINE",
+        "logo": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1775692800&v=beta&t=o-klX4UWKeeWdq1y7ibu6UIM1qA8nmQNCmMRnUR8qqk"
+      }
+    }
+  ],
+  "educations": [
+    {
+      "schoolLogo": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1775692800&v=beta&t=e__fh10RMKU1c18swfy_Q-cTugek7hFEgUhpFKOgfEs",
+      "schoolUrl": "https://www.linkedin.com/company/15124922/",
+      "schoolName": "Universität Wien | University of Vienna",
+      "degreeName": "Bachelor of Applied Science - BASc",
+      "fieldOfStudy": "Business Informatics",
+      "timePeriod": {
+        "startDate": {
+          "month": 10,
+          "year": 2025
+        },
+        "endDate": {
+          "month": 6,
+          "year": 2028
+        }
+      }
+    },
+    {
+      "schoolLogo": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1775692800&v=beta&t=9FzgvK_mn4SygtUtppeqnGpSMCvZFxXrul8tIJRz_ns",
+      "schoolUrl": "https://www.linkedin.com/company/27208380/",
+      "schoolName": "AhlmanEdu",
+      "degreeName": "Esports Program",
+      "fieldOfStudy": "Esports Program",
+      "timePeriod": {
+        "startDate": {
+          "month": 8,
+          "year": 2024
+        },
+        "endDate": {
+          "month": 5,
+          "year": 2025
+        }
+      }
+    }
+  ],
+  "certifications": [],
+  "courses": [],
+  "honors": [],
+  "languages": [
+    {
+      "name": "English",
+      "proficiency": ""
+    },
+    {
+      "name": "German",
+      "proficiency": ""
+    }
+  ],
+  "volunteerExperiences": [],
+  "projects": [],
+  "publications": [],
+  "patents": [],
+  "testScores": [],
+  "organizations": [],
+  "volunteerCauses": [],
+  "companyName": "",
+  "companyPublicId": "",
+  "companyLinkedinUrl": "",
+  "currentCompany": null,
+  "followerCount": 373,
+  "mutualConnections": [],
+  "isVerified": true,
+  "verificationBadge": "SYS_ICN_VERIFIED_MEDIUM",
+  "availablePremiumFeatures": [],
+  "pronunciationUrl": "",
+  "connectionsCount": 372,
+  "skills": [
+    {
+      "name": "C++",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C#",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "SQL",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": ".NET Framework",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Git",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Linux",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Theoretical Computer Science",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Computer Engineering",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Programming",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Business Administration",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Theoretical Computer Science",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Computer Engineering",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Programming",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Business Administration",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C++",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C#",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "SQL",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": ".NET Framework",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Git",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Linux",
+      "endorsements": 0,
+      "experiences": ""
+    }
+  ],
+  "inputUrl": "https://www.linkedin.com/in/klaus-strassner"
 }]
