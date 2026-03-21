@@ -2,11 +2,13 @@ name: Update Dynamic CV
 
 on:
   schedule:
-    # Runs at 00:00 UTC on the 1st day of every month
     - cron: '0 0 1 * *'
   
-  # Allows manual triggers
   workflow_dispatch: 
+
+# This fixes the Node 20 deprecation warning
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
   contents: write
@@ -22,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '24'
 
       - name: Fetch Latest LinkedIn Data
         env:
