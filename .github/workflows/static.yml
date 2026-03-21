@@ -1,17 +1,17 @@
+# .github/workflows/deploy.yml
 name: Sync and Deploy CV
 
 on:
   push:
     branches: ["main"]
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # Still allows you to trigger a manual deploy if needed
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Prevent overlapping deployments
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -23,15 +23,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Fetch Latest Data from Apify
+      - name: Fetch Latest Snapshot from Apify
         run: |
-          # We fetch the last successful run's data. 
-          # We also trigger a new run in the background so the NEXT deploy has fresh data.
+          # This purely READS the results of the last successful Apify run.
+          # It does not start any new billable tasks on Apify.
           curl "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > cv.json
-          curl -X POST "https://api.apify.com/v2/actor-tasks/backfisch~fetch-cv/runs?token=${{ secrets.APIFY_TOKEN }}"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -39,7 +38,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # This now includes the cv.json we just downloaded
+          # This uploads the entire root folder, including the freshly fetched cv.json
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
