@@ -607,13 +607,16 @@
                         </div>`;
                 }
 
-                // Skills (mapping object array to names)
-                if (data.skills && data.skills.length > 0) {
-                    contentData["SKILLS"] = `
-                        <div class="skills-grid">
-                            ${data.skills.map(s => `<div class="skill-tag">${s.name}</div>`).join('')}
-                        </div>`;
-                }
+            // Skills
+            if (data.skills && data.skills.length > 0) {
+                // Use a Set to store unique skill names
+                const uniqueSkillNames = [...new Set(data.skills.map(s => s.name))];
+
+                contentData["SKILLS"] = `
+                    <div class="skills-grid">
+                        ${uniqueSkillNames.map(name => `<div class="skill-tag">${name}</div>`).join('')}
+                    </div>`;
+            }
 
             } catch (error) {
                 console.warn("CV Data Sync:", error.message);
