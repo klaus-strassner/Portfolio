@@ -361,24 +361,16 @@
     </div>
 
     <script>
-    // Visual References
     const grid = document.querySelector('#grid');
     const overlay = document.getElementById('overlay');
     const overlayTitle = document.getElementById('overlayTitle');
     const overlayBody = document.getElementById('overlayBody');
 
-    // Content storage
     const contentData = { 
-        "ESPORTS": "", 
-        "ABOUT": "", 
-        "PROJECTS": "", 
-        "EDUCATION": "", 
-        "EXPERIENCE": "", 
-        "SKILLS": "", 
-        "CONTACT": "" 
+        "ESPORTS": "", "ABOUT": "", "PROJECTS": "", "EDUCATION": "", "EXPERIENCE": "", "SKILLS": "", "CONTACT": "" 
     };
 
-    // --- LIQUIPEDIA FETCH (Public API, stays direct) ---
+    // --- LIQUIPEDIA FETCH ---
     async function initEsports() {
         try {
             const [rRes, hRes] = await Promise.all([
@@ -442,23 +434,17 @@
         } catch (e) { console.error("Liquipedia Sync Error:", e); }
     }
 
-    // --- PRIVATE DATA FETCH (Fetching local JSON created by GitHub) ---
+    // --- PRIVATE DATA FETCH ---
     async function loadPrivateCVData() {
         try {
-            // No API tokens here. We fetch the local file committed by your GitHub Action.
             const response = await fetch('./cv.json');
             if (!response.ok) throw new Error("Local cv.json not found.");
-            
             const items = await response.json();
             if (!items || items.length === 0) return;
-            
             const data = items[0];
-
-            // Mapping Profile Information
             contentData["ABOUT"] = `<p class="cv-desc">${data.summary || data.headline || ''}</p>`;
             contentData["CONTACT"] = `<p class="cv-desc">${data.city || ''}, ${data.country || ''}<br>LinkedIn: <a href="${data.url}" target="_blank" style="color:inherit">View Profile</a></p>`;
 
-            // Experience
             if (data.experiences) {
                 contentData["EXPERIENCE"] = `<div class="cv-timeline">` + 
                     data.experiences.map(job => `
@@ -469,8 +455,6 @@
                             <p class="cv-desc">${job.description || ''}</p>
                         </div>`).join('') + `</div>`;
             }
-
-            // Education
             if (data.education) {
                 contentData["EDUCATION"] = `<div class="cv-timeline">` + 
                     data.education.map(edu => `
@@ -480,25 +464,62 @@
                             <div class="cv-subtitle">${edu.school || ''}</div>
                         </div>`).join('') + `</div>`;
             }
-
-            // Skills
             if (data.skills) {
                 contentData["SKILLS"] = `<div class="skills-grid">` + 
                     data.skills.map(s => `<div class="skill-tag">${s}</div>`).join('') + `</div>`;
             }
-
         } catch (error) {
             console.warn("CV Data Sync:", error.message);
             contentData["ABOUT"] = "Bio data currently unavailable locally.";
         }
     }
 
-    // Launch everything
     Promise.all([initEsports(), loadPrivateCVData()]).finally(() => { 
         document.body.classList.add('loaded'); 
     });
 
-    // --- MOUSE & UI LOGIC (Preserved) ---
+    // --- UI HELPERS ---
+    const openOverlay = (title) => {
+        overlayTitle.textContent = title;
+        overlayBody.innerHTML = contentData[title] || "Data unavailable.";
+        overlay.classList.add('active');
+        
+        // Push state to browser history so 'Back' works
+        history.pushState({ overlayOpen: true }, title);
+    };
+
+    const closeOverlay = (isPopstate = false) => {
+        overlay.classList.remove('active');
+        
+        // If we didn't get here via the back button, we should manually clear the state
+        if (!isPopstate && history.state?.overlayOpen) {
+            history.back();
+        }
+    };
+
+    // --- EVENT LISTENERS ---
+    
+    // Listen for browser back/forward buttons
+    window.addEventListener('popstate', (event) => {
+        // If the overlay is active, close it
+        if (overlay.classList.contains('active')) {
+            closeOverlay(true); 
+        }
+    });
+
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.onclick = () => openOverlay(item.dataset.title);
+    });
+
+    document.getElementById('closeOverlay').onclick = () => closeOverlay();
+
+    window.onkeydown = e => { 
+        if (e.key === "Escape" && overlay.classList.contains('active')) {
+            closeOverlay();
+        }
+    };
+
+    // --- MOUSE LOGIC ---
     grid.onmousemove = e => {
         const r = grid.getBoundingClientRect();
         grid.style.setProperty('--mouse-x', `${(e.clientX - r.left) / r.width * 100}%`);
@@ -509,17 +530,6 @@
         grid.style.setProperty('--spotlight-color', 'var(--line-grey)');
         grid.style.setProperty('--mouse-x', '-100%'); grid.style.setProperty('--mouse-y', '-100%');
     };
-
-    document.querySelectorAll('.grid-item').forEach(item => {
-        item.onclick = () => {
-            const title = item.dataset.title;
-            overlayTitle.textContent = title;
-            overlayBody.innerHTML = contentData[title] || "Data unavailable.";
-            overlay.classList.add('active');
-        };
-    });
-    document.getElementById('closeOverlay').onclick = () => overlay.classList.remove('active');
-    window.onkeydown = e => { if (e.key === "Escape") overlay.classList.remove('active'); };
 </script>
 </body>
 </html>
