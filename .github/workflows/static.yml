@@ -42,7 +42,7 @@ jobs:
 
       - name: Fetch Liquipedia Data
         run: |
-        curl -sf -H "User-Agent: PortfolioUpdater/1.0 (contact@klausstrassner.com)" \
+          curl -sf --compressed -H "User-Agent: PortfolioUpdater/1.0 (contact@klausstrassner.com)" \
                "https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra/Results&format=json&origin=*&prop=text" > liquipedia.json
 
       - name: Fetch GitHub Data
