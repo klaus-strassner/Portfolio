@@ -32,13 +32,13 @@ jobs:
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
           curl -sfX POST "https://api.apify.com/v2/actor-tasks/klaus-strassner~fetch-linkedin/run-sync-get-dataset-items?token=${{ secrets.APIFY_TOKEN }}&timeout=300" \
-               -H "Content-Type: application/json" > linkedin.json
+               -H "Content-Type: application/json" > data/linkedin.json
 
       - name: Fetch Last Cached Data
         if: github.event_name == 'push'
         run: |
           echo "Fetching last cached data from Apify..."
-          curl -sf "https://api.apify.com/v2/actor-tasks/klaus-strassner~fetch-linkedin/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > linkedin.json
+          curl -sf "https://api.apify.com/v2/actor-tasks/klaus-strassner~fetch-linkedin/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > data/linkedin.json
 
       - name: Fetch Liquipedia Data
         run: |
@@ -48,13 +48,13 @@ jobs:
           curl -sf --compressed -H "User-Agent: PortfolioUpdater/1.0 (contact@klausstrassner.com)" \
                "https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra&format=json&origin=*&prop=text&section=0" > temp_profile.json
 
-          jq -s '{results: .[0], profile: .[1]}' temp_results.json temp_profile.json > liquipedia.json
+          jq -s '{results: .[0], profile: .[1]}' temp_results.json temp_profile.json > data/liquipedia.json
           rm temp_results.json temp_profile.json
 
       - name: Fetch GitHub Data
         run: |
           curl -sf -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=updated" > github.json
+               "https://api.github.com/users/${{ github.repository_owner }}/repos?sort=updated" > data/github.json
 
           touch .nojekyll
 
@@ -62,7 +62,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "data: sync sources (Trigger: ${{ github.event_name }}) [skip ci]"
-          file_pattern: 'linkedin.json github.json liquipedia.json'
+          file_pattern: 'data/linkedin.json data/github.json data/liquipedia.json'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

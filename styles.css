@@ -1,0 +1,153 @@
+:root {
+    --bg: #000; 
+    --cell: #0a0a0a; 
+    --text: #fff; 
+    --dim: #444; 
+    --line-grey: #1a1a1a; 
+    --spotlight-color: #1a1a1a; 
+    --thickness: 1px;
+    --mouse-x: -100%; 
+    --mouse-y: -100%;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg); 
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    height: 100dvh; 
+    overflow: hidden; 
+}
+
+/* --- UI COMPONENTS --- */
+#loader {
+    position: fixed; 
+    inset: 0; 
+    z-index: 100;
+    background: var(--bg); 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    letter-spacing: 4px; 
+    font-size: 0.8rem; 
+    color: var(--dim);
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+body.loaded #loader { opacity: 0; visibility: hidden; }
+
+.main-grid {
+    display: grid; 
+    width: 100vw; 
+    height: 100dvh;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--thickness);
+    background: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), var(--spotlight-color), var(--line-grey));
+    background-color: var(--line-grey);
+    opacity: 0; 
+    transform: scale(0.98);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+body.loaded .main-grid { opacity: 1; transform: scale(1); }
+
+/* Grid Item Layouts */
+.esports { grid-area: 1 / 1 / 3 / 3; }
+.about { grid-area: 1 / 3 / 2 / 5; }
+.projects { grid-area: 2 / 3 / 3 / 5; }
+.quad { grid-area: span 1 / span 1; }
+
+.grid-item {
+    position: relative; 
+    background: var(--cell); 
+    padding: 40px; 
+    overflow: hidden; 
+    cursor: pointer;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0; 
+    transform: translateY(10px);
+}
+
+body.loaded .grid-item { animation: fadeInItem 0.6s ease forwards; }
+
+@keyframes fadeInItem { to { opacity: 1; transform: translateY(0); } }
+
+.title {
+    text-transform: uppercase; 
+    font-size: 2.2rem; 
+    font-weight: 500;
+    letter-spacing: -1px; 
+    margin-bottom: 8px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .title { opacity: 1; }
+.esports .title { font-size: 4.8rem; letter-spacing: -2px; }
+.desc { font-size: 1.2rem; color: var(--dim); text-transform: lowercase; }
+
+/* --- OVERLAY --- */
+.overlay {
+    position: fixed; 
+    inset: 0; 
+    background: var(--bg); 
+    z-index: 2000;
+    display: flex; 
+    flex-direction: column; 
+    padding: 5vh 6vw;
+    transform: translateY(100%); 
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto; 
+}
+
+.overlay.active { transform: translateY(0); }
+.overlay-header { display: flex; justify-content: flex-end; margin-bottom: 30px; }
+
+.close-btn { 
+    background: none; border: none; color: var(--dim); 
+    cursor: pointer; text-transform: uppercase; font-size: 0.75rem; 
+    letter-spacing: 1px; transition: color 0.3s ease; 
+}
+.close-btn:hover { color: var(--text); }
+
+#overlayTitle { font-size: clamp(2.5rem, 8vw, 6rem); text-transform: uppercase; letter-spacing: -2px; margin-bottom: 1rem; }
+#overlayBody { max-width: 1300px; width: 100%; line-height: 1.6; color: #ccc; }
+
+/* --- CONTENT SPECIFIC STYLES --- */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+.project-card { border: 1px solid var(--line-grey); padding: 25px; transition: border-color 0.3s ease; min-height: 200px; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+.project-card:hover { border-color: var(--dim); }
+.project-name { font-size: 1.4rem; color: var(--text); margin-bottom: 10px; text-transform: uppercase; }
+.project-meta { font-size: 0.8rem; color: var(--dim); text-transform: uppercase; margin-top: auto; }
+
+.esports-layout { display: grid; grid-template-columns: 420px 1fr; gap: 50px; }
+.meta-item { display: flex; justify-content: space-between; font-size: 0.9rem; text-transform: uppercase; color: var(--dim); border-bottom: 1px solid var(--line-grey); padding-bottom: 8px; margin-bottom: 15px; }
+.meta-item b { color: var(--text); }
+
+.lp-section-header { color: var(--dim); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--line-grey); padding-bottom: 6px; margin-bottom: 15px; }
+.lp-table { width: 100%; border-collapse: collapse; }
+.lp-table th { color: var(--dim); text-align: left; font-size: 0.75rem; text-transform: uppercase; padding-bottom: 10px; font-weight: 400; }
+.lp-table td { padding: 8px 0; border-bottom: 1px solid #0f0f0f; }
+.col-date { width: 15%; color: var(--dim); }
+.col-end { text-align: right; }
+
+.cv-timeline { display: flex; flex-direction: column; gap: 30px; max-width: 800px; }
+.cv-item { border-left: 2px solid var(--line-grey); padding-left: 20px; position: relative; }
+.cv-item::before { content: ''; position: absolute; left: -5px; top: 6px; width: 8px; height: 8px; background: var(--dim); border-radius: 50%; }
+.cv-date { font-size: 0.85rem; color: var(--dim); text-transform: uppercase; margin-bottom: 4px; }
+.cv-title { font-size: 1.5rem; color: var(--text); font-weight: 500; }
+.cv-desc { font-size: 0.95rem; color: #aaa; white-space: pre-wrap; margin-top: 8px; }
+
+.skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-tag { border: 1px solid var(--line-grey); padding: 8px 16px; font-size: 0.9rem; text-transform: uppercase; background: var(--cell); }
+
+@media (max-width: 1024px) {
+    .main-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .esports, .about, .projects { grid-area: auto / span 2; }
+    .esports-layout { grid-template-columns: 1fr; }
+    .col-date { display: none; }
+}
