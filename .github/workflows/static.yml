@@ -43,13 +43,7 @@ jobs:
       - name: Fetch Liquipedia Data
         run: |
           curl -sf -H "User-Agent: PortfolioUpdater (contact@klausstrassner.com)" \
-               "https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra/Results&format=json&origin=*&prop=text" > temp_results.json
-
-          curl -sf -H "User-Agent: PortfolioUpdater (contact@klausstrassner.com)" \
-               "https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra&format=json&origin=*&prop=text&section=0" > temp_profile.json
-
-          jq -s '{results: .[0], profile: .[1]}' temp_results.json temp_profile.json > liquipedia.json
-          rm temp_results.json temp_profile.json
+               "https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra/Results&format=json&origin=*&prop=text" > liquipedia.json
 
       - name: Fetch GitHub Data
         run: |
@@ -61,8 +55,8 @@ jobs:
       - name: Commit Updated Data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "data: sync cv sources (Trigger: ${{ github.event_name }}) [skip ci]"
-          file_pattern: 'linkedin.json github.json'
+          commit_message: "data: sync sources (Trigger: ${{ github.event_name }}) [skip ci]"
+          file_pattern: 'linkedin.json github.json liquipedia.json'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
