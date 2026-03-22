@@ -41,7 +41,7 @@ jobs:
           curl -sf "https://api.apify.com/v2/actor-tasks/klaus-strassner~fetch-linkedin/runs/last/dataset/items?token=${{ secrets.APIFY_TOKEN }}&status=SUCCEEDED" > linkedin.json
 
       - name: Fetch Liquipedia Data
-        run: /
+        run: |
           curl -sf -H "User-Agent: PortfolioUpdater (contact@klausstrassner.com)" \
                "https://liquipedia.net/overwatch/api.php?action=parse&page=Zydra/Results&format=json&origin=*&prop=text" > temp_results.json
 
