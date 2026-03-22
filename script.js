@@ -141,15 +141,23 @@ async function initLinkedin() {
 }
 
 // --- UI LOGIC ---
-const toggleOverlay = (title = null) => {
+const toggleOverlay = (title = null, pushState = true) => {
     if (title) {
         DOM.title.textContent = title;
         DOM.body.innerHTML = contentData[title] || "Data unavailable.";
         DOM.overlay.classList.add('active');
-        history.pushState({ open: true }, title);
+        document.title = `Klaus Strassner | ${title}`; // SEO boost
+        
+        if (pushState) {
+            history.pushState({ open: true, view: title }, title, `?view=${title.toLowerCase()}`);
+        }
     } else {
         DOM.overlay.classList.remove('active');
-        if (history.state?.open) history.back();
+        document.title = "Klaus Strassner";
+        
+        if (pushState) {
+            history.pushState({}, '', window.location.pathname);
+        }
     }
 };
 
@@ -157,7 +165,17 @@ const toggleOverlay = (title = null) => {
 document.querySelectorAll('.grid-item').forEach(el => el.onclick = () => toggleOverlay(el.dataset.title));
 DOM.close.onclick = () => toggleOverlay();
 window.onkeydown = (e) => e.key === "Escape" && toggleOverlay();
-window.onpopstate = () => DOM.overlay.classList.remove('active');
+
+window.onpopstate = (e) => {
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get('view');
+    if (view) {
+        toggleOverlay(view.toUpperCase(), false); // false prevents infinite history loops
+    } else {
+        DOM.overlay.classList.remove('active');
+        document.title = "Klaus Strassner";
+    }
+};
 
 DOM.grid.onmousemove = (e) => {
     const r = DOM.grid.getBoundingClientRect();
@@ -176,4 +194,16 @@ setInterval(() => {
     if (el) el.textContent = new Date().toLocaleString('en-US', { timeZone: 'Europe/Vienna', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
 }, 1000);
 
-Promise.all([initLiquipedia(), initLinkedin(), initGithub()]).finally(() => document.body.classList.add('loaded'));
+Promise.all([initLiquipedia(), initLinkedin(), initGithub()]).finally(() => {
+    document.body.classList.add('loaded');
+    
+    // Check if the user loaded the page with a specific view URL parameter
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get('view');
+    if (view) {
+        const title = view.toUpperCase();
+        if (contentData[title]) {
+            toggleOverlay(title, false);
+        }
+    }
+});
