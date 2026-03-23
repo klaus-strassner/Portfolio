@@ -1,9 +1,12 @@
 [{
   "created": 1735935419303,
-  "trackingId": "+FkFqCrFQk6YH6qh1EFr0Q==",
+  "trackingId": "c1m9y4hARYaM0Pu5w7Q+Kw==",
   "firstName": "Klaus",
   "lastName": "Strassner",
-  "pronoun": null,
+  "pronoun": {
+    "customPronoun": null,
+    "standardizedPronoun": "HE_HIM"
+  },
   "versionTag": "3872476049",
   "headline": "Professional Esports Athlete | Overwatch 2",
   "publicIdentifier": "klaus-strassner",
@@ -186,13 +189,13 @@
   "companyPublicId": "",
   "companyLinkedinUrl": "",
   "currentCompany": null,
-  "followerCount": 373,
+  "followerCount": 376,
   "mutualConnections": [],
   "isVerified": true,
   "verificationBadge": "SYS_ICN_VERIFIED_MEDIUM",
   "availablePremiumFeatures": [],
   "pronunciationUrl": "",
-  "connectionsCount": 372,
+  "connectionsCount": 375,
   "skills": [
     {
       "name": "C++",
