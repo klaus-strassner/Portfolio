@@ -1,24 +1,21 @@
 [{
   "created": 1735935419303,
-  "trackingId": "X0TybjmfR+WuAXCX7Z0wTA==",
+  "trackingId": "PIMJf3XkTVuRB9iPZnXnNA==",
   "firstName": "Klaus",
   "lastName": "Strassner",
-  "pronoun": {
-    "customPronoun": null,
-    "standardizedPronoun": "HE_HIM"
-  },
+  "pronoun": null,
   "versionTag": "3872476049",
   "headline": "Professional Esports Athlete | Overwatch 2",
   "publicIdentifier": "klaus-strassner",
   "creator": false,
   "influencer": false,
   "premium": false,
-  "connectionType": "OUT_OF_NETWORK",
+  "connectionType": 3,
   "birthDate": null,
   "id": "1447487832",
   "profileId": "ACoAAFZG6VgBSbrqElT_KIZXJLOK5k7n5WHyou8",
-  "pictureUrl": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1778112000&v=beta&t=4OOG67b8_wtCjNIvlR5zE3LI2jOzwwxxjAfyUOl0xSo",
-  "coverImageUrl": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1778112000&v=beta&t=LvZ-zKTyvmWo2GdKSZMt3-bG4BhYTEIT0yDdoaMxCdk",
+  "pictureUrl": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1778716800&v=beta&t=vBFW3KneAk-txW5hyg4MZu_EMO5u33bZKMG_XqVoyxg",
+  "coverImageUrl": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1778716800&v=beta&t=OIboucGy3D1AG62cNPEnE7NCqTreFcrkNIMVoyqCTJo",
   "countryCode": "AT",
   "geoUrn": "urn:li:fsd_geo:105890822",
   "geoLocationName": "Vienna, Vienna, Austria",
@@ -62,7 +59,7 @@
       "company": {
         "url": "https://www.linkedin.com/company/18148/",
         "name": "CHERRY",
-        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1778112000&v=beta&t=qQzytuvRBCM43mA8PqjRytZQjPNCEK09Lsj8NfwBnGc"
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1778716800&v=beta&t=t2CSnJnM0H2BnYUhUsZSRjFhEbv4VeKhmc1xHk5q-Cw"
       }
     },
     {
@@ -104,7 +101,7 @@
       "company": {
         "url": "https://www.linkedin.com/company/86185402/",
         "name": "Youscrim GmbH",
-        "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1778112000&v=beta&t=xbg-sWEi9LGBAjhw2LCjCrgIVqPHfEooH6X4GJF5Rvg"
+        "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1778716800&v=beta&t=It9sPE-cyOKaCpSdT5Nwwq5rC4XhNbnaiMXXFzzosPY"
       }
     },
     {
@@ -125,13 +122,13 @@
       "company": {
         "url": "https://www.linkedin.com/company/11103755/",
         "name": "HELFERLINE",
-        "logo": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1778112000&v=beta&t=ipebvuCZJNcdpmY-XBeh49JStP5UyTTOLiVdjZaV_ic"
+        "logo": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1778716800&v=beta&t=K08h6sl8IiO_wI_1jNEsD4OZiiZX_NWFJKdNfGvNXNk"
       }
     }
   ],
   "educations": [
     {
-      "schoolLogo": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1778112000&v=beta&t=Vf-3H0712JiPu0o6K2PSnfUP00zdokYGtCtINvt2I80",
+      "schoolLogo": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1778716800&v=beta&t=wZDoOzjt4sCFMa5ut590C6sQT4wHNOpvUyBHZGIHQbw",
       "schoolUrl": "https://www.linkedin.com/company/15124922/",
       "schoolName": "Universität Wien | University of Vienna",
       "degreeName": "Bachelor of Applied Science - BASc",
@@ -148,7 +145,7 @@
       }
     },
     {
-      "schoolLogo": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1778112000&v=beta&t=18h76tD_qP5lZ2BMfbPJLVjwFeuLdF37LTkgorgS5Rg",
+      "schoolLogo": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1778716800&v=beta&t=QySrfD6L3s5G6kB-gArZ6GJcRnxvJ-6fL2Iozoqc9OA",
       "schoolUrl": "https://www.linkedin.com/company/27208380/",
       "schoolName": "AhlmanEdu",
       "degreeName": "Esports Program",
@@ -189,13 +186,13 @@
   "companyPublicId": "",
   "companyLinkedinUrl": "",
   "currentCompany": null,
-  "followerCount": 395,
+  "followerCount": 400,
   "mutualConnections": [],
   "isVerified": true,
   "verificationBadge": "SYS_ICN_VERIFIED_MEDIUM",
   "availablePremiumFeatures": [],
   "pronunciationUrl": "",
-  "connectionsCount": 393,
+  "connectionsCount": 398,
   "skills": [
     {
       "name": "C++",
