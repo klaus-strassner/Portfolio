@@ -1,4 +1,394 @@
 [{
-  "error": "Proxy authentication required.",
+  "connectionType": "",
+  "pictureUrl": {
+    "200x200": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_200_200/B4EZijNpq8HgAY-/0/1755084923174?e=1785369600&v=beta&t=9MqZnTgX5E_Up3Ub2U8RddlfaXcnAG2KPkHJbBRC81s",
+    "800x800": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1785369600&v=beta&t=0Iw7Wlm7UYwtckUA9edCjiyCZ0973yF213w3bMEGzJk",
+    "400x400": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_400_400/B4EZijNpq8HgAg-/0/1755084923174?e=1785369600&v=beta&t=XV1AX3rkrMFQB6l4W-eVCLKbxeqDm46PYtL6qEYM3wU",
+    "100x100": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_100_100/B4EZijNpq8HgAc-/0/1755084923174?e=1785369600&v=beta&t=F_8B3Pzlb17bSKAyClJsARmFj08zC1zERJG01uFSL4Y"
+  },
+  "coverImageUrl": {},
+  "jobTitle": "Junior Software Engineer",
+  "summary": "Pursue what excites you, set ambitious goals, work hard to achieve them, and inspire others along the way. These principles guide me in life, shaping how I navigate challenges and opportunities.\n\nBeyond eSports, I’m interested in computer engineering, hardware, and high-performance technologies. I enjoy exploring how precision, quality, and optimization can elevate performance - not just in machines but in humans too. I firmly believe that with the right mindset, consistent effort, and a commitment to growth, anything is achievable.",
+  "positions": [
+    {
+      "title": "Junior Software Engineer",
+      "locationName": "Vienna, Austria · Hybrid",
+      "timePeriod": {
+        "startDate": {
+          "month": 5,
+          "year": 2026
+        },
+        "endDate": null
+      },
+      "totalDuration": "3 mos",
+      "description": "Skills: Zephyr · Rust (Programming Language) · C (Programming Language)",
+      "company": {
+        "url": "https://www.linkedin.com/company/18148/",
+        "name": "CHERRY",
+        "logo": {
+          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=UDm1Qt_Dy3CuKRGNaYLmKVi6uzbM-H5bdTJCkYvCpOU",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=5VkmiiBIolTde2XVu9v6C6lH0_SjFmG93hTQlQhF7W4",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=H2zPTco9AWW2094lTKcKFIDEDYzGm_l9OJDf21o3-Xw"
+        }
+      }
+    },
+    {
+      "title": "Professional Esports Athlete",
+      "locationName": "",
+      "timePeriod": {
+        "startDate": {
+          "month": 3,
+          "year": 2024
+        },
+        "endDate": null
+      },
+      "totalDuration": "2 yrs 5 mos",
+      "description": "Competing in Overwatch - playing in Europe’s highest leagues, participating in international tournaments and representing Austria in the World Cup.",
+      "company": {
+        "url": "",
+        "name": "Freelance",
+        "logo": {}
+      }
+    },
+    {
+      "title": "Software Engineer Intern",
+      "locationName": "Vienna, Austria · On-site",
+      "timePeriod": {
+        "startDate": {
+          "month": 2,
+          "year": 2026
+        },
+        "endDate": {
+          "month": 2,
+          "year": 2026
+        }
+      },
+      "totalDuration": "1 mo",
+      "description": "Developed a C++ prototype for OpenRGB to detect their keyboards and control lighting effects, communicating via Protocol Buffers over a CDC ACM connection.",
+      "insights": "Skills: C++ · Git",
+      "company": {
+        "url": "https://www.linkedin.com/company/18148/",
+        "name": "CHERRY",
+        "logo": {
+          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=UDm1Qt_Dy3CuKRGNaYLmKVi6uzbM-H5bdTJCkYvCpOU",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=5VkmiiBIolTde2XVu9v6C6lH0_SjFmG93hTQlQhF7W4",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=H2zPTco9AWW2094lTKcKFIDEDYzGm_l9OJDf21o3-Xw"
+        }
+      }
+    },
+    {
+      "title": "Civil Servant",
+      "locationName": "Vienna, Austria · On-site",
+      "timePeriod": {
+        "startDate": {
+          "month": 10,
+          "year": 2023
+        },
+        "endDate": {
+          "month": 7,
+          "year": 2024
+        }
+      },
+      "totalDuration": "10 mos",
+      "description": "Supported high-risk teenagers navigate towards societal integration, by helping them regain perspective and develop essential life skills.",
+      "company": {
+        "url": "",
+        "name": "Arbeitskreis Noah",
+        "logo": {}
+      }
+    },
+    {
+      "title": "Software Engineer Intern",
+      "locationName": "Cologne, North Rhine-Westphalia, Germany · Remote",
+      "timePeriod": {
+        "startDate": {
+          "month": 7,
+          "year": 2022
+        },
+        "endDate": {
+          "month": 8,
+          "year": 2022
+        }
+      },
+      "totalDuration": "2 mos",
+      "description": "Developed scripts for internal tools and configured a Linux server environment for hosting and deployment using C# and SQL.",
+      "insights": "Skills: C# · SQL · Linux",
+      "company": {
+        "url": "https://www.linkedin.com/company/86185402/",
+        "name": "Youscrim GmbH",
+        "logo": {
+          "200x200": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_200_200/company-logo_200_200/0/1653393249766?e=1785369600&v=beta&t=AVADaoFu6StrExCT3IIIYkSfvsKAyLYB0iLVArACG9A",
+          "100x100": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_100_100/company-logo_100_100/0/1653393249766?e=1785369600&v=beta&t=SUiETQWFhX1oBnBDAwyU8IO-WcEY9LpoI4ljJihUZ6w",
+          "400x400": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1785369600&v=beta&t=B92btd8JNBg7zaPGS-E-zJxgO4ALZL-_cp2NWyILaLA"
+        }
+      }
+    },
+    {
+      "title": "Technical Support Intern",
+      "locationName": "Vienna, Austria · On-site",
+      "timePeriod": {
+        "startDate": {
+          "month": 7,
+          "year": 2021
+        },
+        "endDate": {
+          "month": 8,
+          "year": 2021
+        }
+      },
+      "totalDuration": "2 mos",
+      "description": "Coordinated customer requests with technicians, provided remote tech support, assisted with repairs and personalized advice in a service shop.",
+      "company": {
+        "url": "https://www.linkedin.com/company/11103755/",
+        "name": "HELFERLINE",
+        "logo": {
+          "200x200": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_200_200/company-logo_200_200/0/1682092487447?e=1785369600&v=beta&t=5UZQwALpMW8hb5clNFIdkeDqedi-Nvr0ZMzAMYr4qfc",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_100_100/company-logo_100_100/0/1682092487447?e=1785369600&v=beta&t=XKU7B5KVcrIMRFG8IGE7PjPEBeJ6Ii5byamDaCwLmSA",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1785369600&v=beta&t=lgjxALspoZ7idsFYMF6xhUKNep14oYCVoMFsEQWvxds"
+        }
+      }
+    }
+  ],
+  "educations": [
+    {
+      "schoolLogo": {
+        "200x200": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_200_200/company-logo_200_200/0/1707494205443?e=1785369600&v=beta&t=iU6X849ZDByo7Ud8TQrgoAThqsIIPaeKWaBF8zjK0bs",
+        "100x100": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_100_100/company-logo_100_100/0/1707494205443?e=1785369600&v=beta&t=7d_8ZvjvpS807o1udDq9RT1e6l1XdzwFAkwEUeGgKOE",
+        "400x400": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1785369600&v=beta&t=UheWYCaxFA8XuPyUg7UPkLHGJWfKe_VGJCTTHScMudM"
+      },
+      "schoolUrl": "https://www.linkedin.com/company/15124922/",
+      "schoolName": "Universität Wien | University of Vienna",
+      "degreeName": "Bachelor of Applied Science - BASc",
+      "fieldOfStudy": "Business Informatics",
+      "timePeriod": {
+        "startDate": {
+          "month": 10,
+          "year": 2025
+        },
+        "endDate": {
+          "month": 6,
+          "year": 2028
+        }
+      }
+    },
+    {
+      "schoolLogo": {
+        "200x200": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_200_200/company-logo_200_200/0/1641209842721/ahlman_logo?e=1785369600&v=beta&t=NEvC0VXZrC839wfuStBxCiOv0rEV23Bu-GGumG6QCfw",
+        "100x100": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_100_100/company-logo_100_100/0/1641209842721/ahlman_logo?e=1785369600&v=beta&t=Iyz0tiT29NDbss7jUkd8TDgrtz7_eZq8aisZdzOuY8w",
+        "400x400": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1785369600&v=beta&t=v6mcdp-9xAi4869Ejgkz907uo8cI5ld4_ZmwxIzsQ1g"
+      },
+      "schoolUrl": "https://www.linkedin.com/company/27208380/",
+      "schoolName": "AhlmanEdu",
+      "degreeName": "Esports Program",
+      "fieldOfStudy": "Esports Program",
+      "timePeriod": {
+        "startDate": {
+          "month": 8,
+          "year": 2024
+        },
+        "endDate": {
+          "month": 5,
+          "year": 2025
+        }
+      }
+    }
+  ],
+  "certifications": [],
+  "courses": [],
+  "honors": [],
+  "languages": [
+    {
+      "name": "English",
+      "proficiency": ""
+    },
+    {
+      "name": "German",
+      "proficiency": ""
+    }
+  ],
+  "volunteerExperiences": [],
+  "projects": [],
+  "publications": [],
+  "patents": [],
+  "testScores": [],
+  "organizations": [],
+  "volunteerCauses": [],
+  "companyName": "CHERRY",
+  "companyPublicId": "cherry-",
+  "companyLinkedinUrl": "https://www.linkedin.com/company/cherry-/",
+  "currentCompany": {
+    "entityUrn": "urn:li:fsd_company:18148",
+    "name": "CHERRY",
+    "logoResolutionResult": {
+      "url": null,
+      "vectorImage": {
+        "digitalmediaAsset": "urn:li:digitalmediaAsset:D4D0BAQFSNq_LtS5GZg",
+        "attribution": null,
+        "c2paManifestData": null,
+        "artifacts": [
+          {
+            "width": 200,
+            "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=UDm1Qt_Dy3CuKRGNaYLmKVi6uzbM-H5bdTJCkYvCpOU",
+            "expiresAt": 1785369600000,
+            "height": 200
+          },
+          {
+            "width": 100,
+            "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=5VkmiiBIolTde2XVu9v6C6lH0_SjFmG93hTQlQhF7W4",
+            "expiresAt": 1785369600000,
+            "height": 100
+          },
+          {
+            "width": 400,
+            "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1785369600&v=beta&t=H2zPTco9AWW2094lTKcKFIDEDYzGm_l9OJDf21o3-Xw",
+            "expiresAt": 1785369600000,
+            "height": 400
+          }
+        ],
+        "rootUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_"
+      }
+    },
+    "universalName": "cherry-",
+    "url": "https://www.linkedin.com/company/cherry-/"
+  },
+  "followerCount": 447,
+  "mutualConnections": [],
+  "isVerified": true,
+  "verificationBadge": "SYS_ICN_VERIFIED_MEDIUM",
+  "availablePremiumFeatures": [],
+  "pronunciationUrl": "",
+  "connectionsCount": 445,
+  "skills": [
+    {
+      "name": "C (Programming Language)",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Rust (Programming Language)",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Zephyr",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C++",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C#",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "SQL",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": ".NET Framework",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Git",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Linux",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Theoretical Computer Science",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Computer Engineering",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Programming",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Business Administration",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Zephyr",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Theoretical Computer Science",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Computer Engineering",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Programming",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Business Administration",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C (Programming Language)",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Rust (Programming Language)",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C++",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "C#",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "SQL",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": ".NET Framework",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Git",
+      "endorsements": 0,
+      "experiences": ""
+    },
+    {
+      "name": "Linux",
+      "endorsements": 0,
+      "experiences": ""
+    }
+  ],
   "inputUrl": "https://www.linkedin.com/in/klaus-strassner"
 }]
