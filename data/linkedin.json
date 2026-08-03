@@ -1,6 +1,6 @@
 [{
   "created": 1735935419303,
-  "trackingId": "v8syW2RDTgaXw4+Z75rfnQ==",
+  "trackingId": "EvokPYY4S/CA7oG+nKY7aA==",
   "firstName": "Klaus",
   "lastName": "Strassner",
   "pronoun": null,
@@ -15,14 +15,14 @@
   "id": "1447487832",
   "profileId": "ACoAAFZG6VgBSbrqElT_KIZXJLOK5k7n5WHyou8",
   "pictureUrl": {
-    "200x200": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_200_200/B4EZijNpq8HgAY-/0/1755084923174?e=1786579200&v=beta&t=Ht36sPAvBZo7jKCDL7VDWFKuiorW43kuB3PYelRMFcs",
-    "800x800": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1786579200&v=beta&t=5KfBy3xDUeQ6KsBxtdoJkdLp1lHQ3EA7NvmUf6B9eQo",
-    "400x400": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_400_400/B4EZijNpq8HgAg-/0/1755084923174?e=1786579200&v=beta&t=iVrqRdMEqfTsLIz7enzlcCxZCyFgeLizCpk2a9sI_DM",
-    "100x100": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_100_100/B4EZijNpq8HgAc-/0/1755084923174?e=1786579200&v=beta&t=5sCV8wcqyNPzOQd5CJyBpuU0bvJBXigNHaxMyeYZHSg"
+    "200x200": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_200_200/B4EZijNpq8HgAY-/0/1755084923174?e=1787184000&v=beta&t=bkkOpVcZnL1jMB-mx-zLedEnhay4q74hOHfrO8My5i4",
+    "800x800": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1787184000&v=beta&t=CCncqJsabCjldtSJkUqxWlyI7_ap0NPu9iQIKSuC4I8",
+    "400x400": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_400_400/B4EZijNpq8HgAg-/0/1755084923174?e=1787184000&v=beta&t=g3plaNWkgqBShoFGNBWR6RoEUlhsQhS3sFT6uqBzCTU",
+    "100x100": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_100_100/B4EZijNpq8HgAc-/0/1755084923174?e=1787184000&v=beta&t=VREEfnQ7FOmIFf3sF1EYCPbYqYFsrAMmkD7q8r4MpGo"
   },
   "coverImageUrl": {
-    "800x200": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_200_800/B4EZijRHEPHgAU-/0/1755085829392?e=1786579200&v=beta&t=gpGULqsA3sR0cWMSG2ray0Rtef95KgXF8Ax3eH9CBcI",
-    "1280x320": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1786579200&v=beta&t=scEhO4VBAUPp-qFg3tQFX9qKP_jk7TDB_whMclI6c3Q"
+    "800x200": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_200_800/B4EZijRHEPHgAU-/0/1755085829392?e=1787184000&v=beta&t=NFzPOAJjNgygguH-3LNvf-GgEJ2w2C3iUrULaahQYPk",
+    "1280x320": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1787184000&v=beta&t=QGhx3CRLu2jegsnCo-DZ2D-2c2knS0zUNAgRRk87I_8"
   },
   "countryCode": "AT",
   "geoUrn": "urn:li:fsd_geo:105890822",
@@ -41,15 +41,15 @@
         },
         "endDate": null
       },
-      "totalDuration": "3 mos",
+      "totalDuration": "4 mos",
       "description": "Skills: Zephyr · Rust (Programming Language) · C (Programming Language) · Gitlab · Continuous Integration and Continuous Delivery (CI/CD)",
       "company": {
         "url": "https://www.linkedin.com/company/18148/",
         "name": "CHERRY",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=UKxTeLhx9qGxeVq9H4pN6dTHubNRG0J4FPCpgrv7DOE",
-          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=VnAN6QDS_HRRDaEn3jqAOeDUrc1KQ_rw1nMp05RvWG0",
-          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=dajUTwWa2k_ElkCKHEcNNGqDqUC8elOjjdjRoDDY2q8"
+          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=E-JXHQXZZgKGdeQ6NqPdHYcNdWFDWFsQkG1mNKo_A70",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=w5s37NEh0FmoNurqK0H8ztT0jZ8OIM_w2-rpH3FsffY",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=fyOfRAry9YGBB1glgSa-_1qzSOH3rZ3Hl_haIZ_ZmzI"
         }
       }
     },
@@ -63,7 +63,7 @@
         },
         "endDate": null
       },
-      "totalDuration": "2 yrs 5 mos",
+      "totalDuration": "2 yrs 6 mos",
       "description": "Competing in Overwatch - playing in Europe’s highest leagues, participating in international tournaments and representing Austria in the World Cup.",
       "company": {
         "url": "",
@@ -91,9 +91,9 @@
         "url": "https://www.linkedin.com/company/18148/",
         "name": "CHERRY",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=UKxTeLhx9qGxeVq9H4pN6dTHubNRG0J4FPCpgrv7DOE",
-          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=VnAN6QDS_HRRDaEn3jqAOeDUrc1KQ_rw1nMp05RvWG0",
-          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=dajUTwWa2k_ElkCKHEcNNGqDqUC8elOjjdjRoDDY2q8"
+          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=E-JXHQXZZgKGdeQ6NqPdHYcNdWFDWFsQkG1mNKo_A70",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=w5s37NEh0FmoNurqK0H8ztT0jZ8OIM_w2-rpH3FsffY",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=fyOfRAry9YGBB1glgSa-_1qzSOH3rZ3Hl_haIZ_ZmzI"
         }
       }
     },
@@ -138,9 +138,9 @@
         "url": "https://www.linkedin.com/company/86185402/",
         "name": "Youscrim GmbH",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_200_200/company-logo_200_200/0/1653393249766?e=1786579200&v=beta&t=WGExKKzROY8f1ZrUgjvOLpSZU78DovIRGQTDoI003uU",
-          "100x100": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_100_100/company-logo_100_100/0/1653393249766?e=1786579200&v=beta&t=BxlAzuAmp8k3mFXELnq6PP7hhgej6vJoZd734Z2fGm0",
-          "400x400": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1786579200&v=beta&t=6e9P4igvmcFd8Ag0oGCi5dVwq5IsH6sUUgTlWA1jXmo"
+          "200x200": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_200_200/company-logo_200_200/0/1653393249766?e=1787184000&v=beta&t=GxXCjn7gmL_lbGj4Z3XGJ5zJEaDC2CcYKthzqNMhseQ",
+          "100x100": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_100_100/company-logo_100_100/0/1653393249766?e=1787184000&v=beta&t=a_PI77ui6Nda9YDNGQ2pwydScw95fDbrb4Xy3RqJbbA",
+          "400x400": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1787184000&v=beta&t=ao1SdjhZ35gJtfufNkQ4P0ejWxnW5GBpdERDFjqW4vA"
         }
       }
     },
@@ -163,9 +163,9 @@
         "url": "https://www.linkedin.com/company/11103755/",
         "name": "HELFERLINE",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_200_200/company-logo_200_200/0/1682092487447?e=1786579200&v=beta&t=Yxa00RE3KwX3tto-6wG4P5wZT2NaUp6Hk9HnXp1vyY0",
-          "100x100": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_100_100/company-logo_100_100/0/1682092487447?e=1786579200&v=beta&t=IdlZFLE6lb8gz2967-DdTH8RZnljlbtGeqQGHL33K3k",
-          "400x400": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1786579200&v=beta&t=gJz_r5N-vHOjcRbD7FGLKlv9sE8zjBmeG2hqS4erXsE"
+          "200x200": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_200_200/company-logo_200_200/0/1682092487447?e=1787184000&v=beta&t=DN3yKDAETpNTStKkHx1kl2GbXeA6FkdSvGaH_GudhiM",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_100_100/company-logo_100_100/0/1682092487447?e=1787184000&v=beta&t=INX_7XHlZ5kBLHDSV5D2FlbkrpAGvcQ6P6K4EdE7bE4",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1787184000&v=beta&t=47sQ3CGMBb9PI2-_1Hm5BKvbG0ZZR-ZBRt86MndvGp0"
         }
       }
     }
@@ -173,9 +173,9 @@
   "educations": [
     {
       "schoolLogo": {
-        "200x200": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_200_200/company-logo_200_200/0/1707494205443?e=1786579200&v=beta&t=qXTdX2o67or9pkHm246BTVCbG1QpzOMOea1g9SH59ao",
-        "100x100": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_100_100/company-logo_100_100/0/1707494205443?e=1786579200&v=beta&t=tHpetlLEVQEaCRNrF8avpT0cxiYKl6guF-HrJbSaZlQ",
-        "400x400": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1786579200&v=beta&t=KhbhYnNchj-GGNx0oQBtPXvpgHv2XA-8lCYLNNKzDd0"
+        "200x200": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_200_200/company-logo_200_200/0/1707494205443?e=1787184000&v=beta&t=DWmay9AKVE28YdTIcoNSEbOpqYWc4UOovCke7plip3k",
+        "100x100": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_100_100/company-logo_100_100/0/1707494205443?e=1787184000&v=beta&t=gdgjM49XV1ctxHajmfYthJsts_Hei-7FXD3KTF8N77A",
+        "400x400": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1787184000&v=beta&t=lOFDV2Vr2PSu497Dyoe3sLpzkY88hPXXMWN8jxdFsO0"
       },
       "schoolUrl": "https://www.linkedin.com/company/15124922/",
       "schoolName": "Universität Wien | University of Vienna",
@@ -194,9 +194,9 @@
     },
     {
       "schoolLogo": {
-        "200x200": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_200_200/company-logo_200_200/0/1641209842721/ahlman_logo?e=1786579200&v=beta&t=6LGr23Nhv66IbZ2RRr810CVlhUhnHsseVlhh1U3DA90",
-        "100x100": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_100_100/company-logo_100_100/0/1641209842721/ahlman_logo?e=1786579200&v=beta&t=e_DNWteZ1uAzCGxq75UUrWR60P4IM0FloyGZQwyEy7E",
-        "400x400": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1786579200&v=beta&t=VQiaGKzIgQufv-iGU1RYykRM5Sv-KAiQJ8T2Nloc9x4"
+        "200x200": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_200_200/company-logo_200_200/0/1641209842721/ahlman_logo?e=1787184000&v=beta&t=MyjG1HSaVERPovq_rAOrLEGgfD6C_y4zYAFRBH0NFS4",
+        "100x100": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_100_100/company-logo_100_100/0/1641209842721/ahlman_logo?e=1787184000&v=beta&t=w4sfZkHC7nlTtTR26mV1ng0_ySoZhDB46-huHYhwewg",
+        "400x400": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1787184000&v=beta&t=BlylBH8J6hBAXk_hH0P751xyqNV2K0BqmmROeAIE-6s"
       },
       "schoolUrl": "https://www.linkedin.com/company/27208380/",
       "schoolName": "AhlmanEdu",
@@ -249,20 +249,20 @@
         "artifacts": [
           {
             "width": 200,
-            "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=UKxTeLhx9qGxeVq9H4pN6dTHubNRG0J4FPCpgrv7DOE",
-            "expiresAt": 1786579200000,
+            "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=E-JXHQXZZgKGdeQ6NqPdHYcNdWFDWFsQkG1mNKo_A70",
+            "expiresAt": 1787184000000,
             "height": 200
           },
           {
             "width": 100,
-            "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=VnAN6QDS_HRRDaEn3jqAOeDUrc1KQ_rw1nMp05RvWG0",
-            "expiresAt": 1786579200000,
+            "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=w5s37NEh0FmoNurqK0H8ztT0jZ8OIM_w2-rpH3FsffY",
+            "expiresAt": 1787184000000,
             "height": 100
           },
           {
             "width": 400,
-            "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1786579200&v=beta&t=dajUTwWa2k_ElkCKHEcNNGqDqUC8elOjjdjRoDDY2q8",
-            "expiresAt": 1786579200000,
+            "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1787184000&v=beta&t=fyOfRAry9YGBB1glgSa-_1qzSOH3rZ3Hl_haIZ_ZmzI",
+            "expiresAt": 1787184000000,
             "height": 400
           }
         ],
@@ -272,13 +272,13 @@
     "universalName": "cherry-",
     "url": "https://www.linkedin.com/company/cherry-/"
   },
-  "followerCount": 459,
+  "followerCount": 465,
   "mutualConnections": [],
   "isVerified": true,
   "verificationBadge": "SYS_ICN_VERIFIED_MEDIUM",
   "availablePremiumFeatures": [],
   "pronunciationUrl": "",
-  "connectionsCount": 457,
+  "connectionsCount": 463,
   "skills": [
     {
       "name": "Gitlab",
