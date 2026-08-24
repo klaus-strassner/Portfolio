@@ -1,6 +1,6 @@
 [{
   "created": 1735935419303,
-  "trackingId": "JFqxNLAnSZWk+oz2NPPelw==",
+  "trackingId": "US51ZwdUQzmIDORMvfYZdg==",
   "firstName": "Klaus",
   "lastName": "Strassner",
   "pronoun": null,
@@ -15,14 +15,14 @@
   "id": "1447487832",
   "profileId": "ACoAAFZG6VgBSbrqElT_KIZXJLOK5k7n5WHyou8",
   "pictureUrl": {
-    "200x200": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_200_200/B4EZijNpq8HgAY-/0/1755084923174?e=1788393600&v=beta&t=VKTr87hwalMSDB-fzV9A-yYjSzXMI6LeRZH2i1rGKpQ",
-    "800x800": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1788393600&v=beta&t=DMIMFlhNg8H2EdKf_x7xeVjLxbjNt1toe3SXFfj9c40",
-    "400x400": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_400_400/B4EZijNpq8HgAg-/0/1755084923174?e=1788393600&v=beta&t=s0dAsUZVb0jJ4DB-2xWwEtav6k4fuIBJ7RbP_X6oZDI",
-    "100x100": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_100_100/B4EZijNpq8HgAc-/0/1755084923174?e=1788393600&v=beta&t=EqUULNjfRAKPMdnZGv1TlqslAI3oywm1zx9QpL5aKe4"
+    "200x200": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_200_200/B4EZijNpq8HgAY-/0/1755084923174?e=1788998400&v=beta&t=1ltvgZYgAP056XLxNFb1PSYL_ZGjEp7bIdEcZN2bKIA",
+    "800x800": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-crop_800_800/B4EZijNpq8HgAI-/0/1755084923076?e=1788998400&v=beta&t=RfEN7YbNi8jcBs0DCSjN4gJQVoT7pyC1iBKO1rmi9ZQ",
+    "400x400": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_400_400/B4EZijNpq8HgAg-/0/1755084923174?e=1788998400&v=beta&t=7np3eJFd6hEi1ww_2j-DDPMnsUYDutfnPVduiSVM8LM",
+    "100x100": "https://media.licdn.com/dms/image/v2/D4E03AQFjXaN93ZXwZw/profile-displayphoto-scale_100_100/B4EZijNpq8HgAc-/0/1755084923174?e=1788998400&v=beta&t=gFlezQcCagno_heMhzx717n56WpuND55aZGJzBlfxYU"
   },
   "coverImageUrl": {
-    "800x200": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_200_800/B4EZijRHEPHgAU-/0/1755085829392?e=1788393600&v=beta&t=vV6AnY06pZBQYE6gO6H-vPJ6m9nCgpa1RFxrIU18GRc",
-    "1280x320": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1788393600&v=beta&t=wJaQK-RHk-cCs4Nhktm0_6tybXcjkOyBvunzIIBXSGc"
+    "800x200": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_200_800/B4EZijRHEPHgAU-/0/1755085829392?e=1788998400&v=beta&t=ssfWxG7EA8Vqc5RvIVR4psFPIx-Wbb4EV2FOIEQ5g2Y",
+    "1280x320": "https://media.licdn.com/dms/image/v2/D4E16AQFC5feAxZA8AQ/profile-displaybackgroundimage-shrink_350_1400/B4EZijRHEPHgAY-/0/1755085829392?e=1788998400&v=beta&t=1CcgXvAagpFgNhcKKCh5VcojUFPoeXdBxBQwP4uMfhc"
   },
   "countryCode": "AT",
   "geoUrn": "urn:li:fsd_geo:105890822",
@@ -47,9 +47,9 @@
         "url": "https://www.linkedin.com/company/18148/",
         "name": "CHERRY",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=LyNMKjcZm3VJykStG8Ex0W6KF7g3VzRC5FKFKYYH_D4",
-          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=RWdtgaP4kstIzObs__0tfUo_f9UA_iQswWOO8Af-rn0",
-          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=zCsv8qigFZVh9oxo5JFSQ-6_-o0i5s93e5IrTkRlFzE"
+          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=Urcc-TddMrNuQCFITDyUdH-m7Gwen0EPkUELgfvcwFw",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=c5ISrSc1LhGgw00RmBwuGRfcKUwsBWKO5DbM0Bue6dU",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=220OhSLO4cAP3sAa4dMvsmhJQSaLtM2lYsZFU9zRVnE"
         }
       }
     },
@@ -91,9 +91,9 @@
         "url": "https://www.linkedin.com/company/18148/",
         "name": "CHERRY",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=LyNMKjcZm3VJykStG8Ex0W6KF7g3VzRC5FKFKYYH_D4",
-          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=RWdtgaP4kstIzObs__0tfUo_f9UA_iQswWOO8Af-rn0",
-          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=zCsv8qigFZVh9oxo5JFSQ-6_-o0i5s93e5IrTkRlFzE"
+          "200x200": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=Urcc-TddMrNuQCFITDyUdH-m7Gwen0EPkUELgfvcwFw",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=c5ISrSc1LhGgw00RmBwuGRfcKUwsBWKO5DbM0Bue6dU",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4D0BAQFSNq_LtS5GZg/company-logo_400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=220OhSLO4cAP3sAa4dMvsmhJQSaLtM2lYsZFU9zRVnE"
         }
       }
     },
@@ -138,9 +138,9 @@
         "url": "https://www.linkedin.com/company/86185402/",
         "name": "Youscrim GmbH",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_200_200/company-logo_200_200/0/1653393249766?e=1788393600&v=beta&t=ea21yPQ_gBORJ4BLTa7ehhKRdJQw0cj0mxlWxoyWvmk",
-          "100x100": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_100_100/company-logo_100_100/0/1653393249766?e=1788393600&v=beta&t=rSht5IUEzpu5eBGJIiKmgWx_yCrozt744WCjEdO3Cb0",
-          "400x400": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1788393600&v=beta&t=SFEnDRo6fUy0WAUN98Edsv7xLTSevPMOrbFO825Beuc"
+          "200x200": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_200_200/company-logo_200_200/0/1653393249766?e=1788998400&v=beta&t=RwALvPEG994KFVMKkqrl8Fa07kVT-Ow50eT58u0b7Ug",
+          "100x100": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_100_100/company-logo_100_100/0/1653393249766?e=1788998400&v=beta&t=jgHmqzlYytISBys0NtNWxVg0psD7QIF5_ccWrWKHLjk",
+          "400x400": "https://media.licdn.com/dms/image/v2/C4E0BAQGweyB5syLoFw/company-logo_400_400/company-logo_400_400/0/1653393249766?e=1788998400&v=beta&t=EgTVfBNQt_0SPgg-ip8ilTPX1WHzupL6XbB_U-6LydM"
         }
       }
     },
@@ -163,9 +163,9 @@
         "url": "https://www.linkedin.com/company/11103755/",
         "name": "HELFERLINE",
         "logo": {
-          "200x200": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_200_200/company-logo_200_200/0/1682092487447?e=1788393600&v=beta&t=FlcFsw13gRsGaUNnukOEU_YTJg1NHtYJOt4-py1PyPI",
-          "100x100": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_100_100/company-logo_100_100/0/1682092487447?e=1788393600&v=beta&t=1fnWEyB2ktfiqflKQeW3CgmNbKU98quDVQ1yeDupvLg",
-          "400x400": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1788393600&v=beta&t=Zol2mmTKO7d-MjK1XLR48ggkF_xg1-MHsadpRcPa90Y"
+          "200x200": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_200_200/company-logo_200_200/0/1682092487447?e=1788998400&v=beta&t=Vq-atTOaNmZMJADxaGLCSYvKauessPbqECzj7OPmD4w",
+          "100x100": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_100_100/company-logo_100_100/0/1682092487447?e=1788998400&v=beta&t=RWOZa9ikwKMoDAd0W9zlxPiPCY032qUf5o1nNe6Oh0s",
+          "400x400": "https://media.licdn.com/dms/image/v2/D4E0BAQF7dsCVHa7LoQ/company-logo_400_400/company-logo_400_400/0/1682092487447?e=1788998400&v=beta&t=FC8gRySo7VCgtnQ3wb_DMMOrVi8w_VNqh6MfGs3bIOw"
         }
       }
     }
@@ -173,9 +173,9 @@
   "educations": [
     {
       "schoolLogo": {
-        "200x200": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_200_200/company-logo_200_200/0/1707494205443?e=1788393600&v=beta&t=PKm0qdXUUrYfi38w1vjoWH9nUwDA-NclHGxaqMNeyoA",
-        "100x100": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_100_100/company-logo_100_100/0/1707494205443?e=1788393600&v=beta&t=hTrf2PXPrC7P9wu-oj4zjwSbs0R21Kp7qu699BwgwZE",
-        "400x400": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1788393600&v=beta&t=6_kF6slqYaphDXapSWHGBCIm8raHsNgjAtonPlgEXNA"
+        "200x200": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_200_200/company-logo_200_200/0/1707494205443?e=1788998400&v=beta&t=pjpriYZZpDZTSlZEJB_vONRVszBW4tjVJJR67vKbfJY",
+        "100x100": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_100_100/company-logo_100_100/0/1707494205443?e=1788998400&v=beta&t=UB_M13XYIasg6xOKitoVFAz5A7M5irBIzEnsRvEuNkk",
+        "400x400": "https://media.licdn.com/dms/image/v2/D560BAQGdyhRRSZ7uHg/company-logo_400_400/company-logo_400_400/0/1707494205443?e=1788998400&v=beta&t=vcSXvZ_3XdBKOFw-4o53vwWixCT_o1FO0ISJfaewfes"
       },
       "schoolUrl": "https://www.linkedin.com/company/15124922/",
       "schoolName": "Universität Wien | University of Vienna",
@@ -194,9 +194,9 @@
     },
     {
       "schoolLogo": {
-        "200x200": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_200_200/company-logo_200_200/0/1641209842721/ahlman_logo?e=1788393600&v=beta&t=Y4JjiRvTFwxfCU44WmuN9a7TWjJNFS1nq0NhGA55IY4",
-        "100x100": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_100_100/company-logo_100_100/0/1641209842721/ahlman_logo?e=1788393600&v=beta&t=jB9bTVKW7EivWlrug0mZAUXmSYbwuH4uDe8Ulqn8eAg",
-        "400x400": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1788393600&v=beta&t=gID8WGK7wZCyfo8Jf8JkITKZEoWI0xvn60JjizaRwX0"
+        "200x200": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_200_200/company-logo_200_200/0/1641209842721/ahlman_logo?e=1788998400&v=beta&t=mt85kdSJZ_dVjRrpp4XPWrRh8tRokzgqotgIAI_JEYk",
+        "100x100": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_100_100/company-logo_100_100/0/1641209842721/ahlman_logo?e=1788998400&v=beta&t=AfdzNRBZu5VJIwv5o6uXQ39-oneOPwS75EI1YjSksH8",
+        "400x400": "https://media.licdn.com/dms/image/v2/C4D0BAQGKcFGsjsARIw/company-logo_400_400/company-logo_400_400/0/1641209842721/ahlman_logo?e=1788998400&v=beta&t=OgKrYxhttQOWy5hntHOuXAmcYVVwhOWktIlDiCRwqNY"
       },
       "schoolUrl": "https://www.linkedin.com/company/27208380/",
       "schoolName": "AhlmanEdu",
@@ -249,20 +249,20 @@
         "artifacts": [
           {
             "width": 200,
-            "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=LyNMKjcZm3VJykStG8Ex0W6KF7g3VzRC5FKFKYYH_D4",
-            "expiresAt": 1788393600000,
+            "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=Urcc-TddMrNuQCFITDyUdH-m7Gwen0EPkUELgfvcwFw",
+            "expiresAt": 1788998400000,
             "height": 200
           },
           {
             "width": 100,
-            "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=RWdtgaP4kstIzObs__0tfUo_f9UA_iQswWOO8Af-rn0",
-            "expiresAt": 1788393600000,
+            "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=c5ISrSc1LhGgw00RmBwuGRfcKUwsBWKO5DbM0Bue6dU",
+            "expiresAt": 1788998400000,
             "height": 100
           },
           {
             "width": 400,
-            "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1788393600&v=beta&t=zCsv8qigFZVh9oxo5JFSQ-6_-o0i5s93e5IrTkRlFzE",
-            "expiresAt": 1788393600000,
+            "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1715848655460/cherry__logo?e=1788998400&v=beta&t=220OhSLO4cAP3sAa4dMvsmhJQSaLtM2lYsZFU9zRVnE",
+            "expiresAt": 1788998400000,
             "height": 400
           }
         ],
@@ -272,13 +272,13 @@
     "universalName": "cherry-",
     "url": "https://www.linkedin.com/company/cherry-/"
   },
-  "followerCount": 476,
+  "followerCount": 483,
   "mutualConnections": [],
   "isVerified": true,
   "verificationBadge": "SYS_ICN_VERIFIED_MEDIUM",
   "availablePremiumFeatures": [],
   "pronunciationUrl": "",
-  "connectionsCount": 474,
+  "connectionsCount": 481,
   "skills": [
     {
       "name": "Gitlab",
