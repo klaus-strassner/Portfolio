@@ -34,6 +34,8 @@
 }
 
 html {
+  height: 100%;
+  overflow: hidden;
   background: #fff;
   color: var(--ink);
 }
@@ -42,18 +44,27 @@ html {
    without ever being fixed over the content on long ones. */
 body {
   margin: 0;
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(3rem, 10vh, 7rem) clamp(1.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2.5rem);
+  padding: clamp(2rem, 8vh, 7rem) clamp(1.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
   box-sizing: border-box;
   font-family: "Manrope", system-ui, sans-serif;
   line-height: 1.5;
   letter-spacing: 0.015em;
 }
 
-main { flex: 1 0 auto; }
+/* The page itself never scrolls. If a long page genuinely cannot fit,
+   only this region does, so the footer stays where it is.
+   min-height:0 is what lets a flex child shrink below its content. */
+main {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
 
 h1 {
   margin: 0;
@@ -129,7 +140,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .page h1 { margin-bottom: clamp(1.5rem, 4vw, 2.25rem); }
 
 .page h2 {
-  margin: clamp(2.25rem, 6vw, 3rem) 0 0;
+  margin: clamp(1.5rem, 4vw, 2rem) 0 0;
   font-size: var(--size-1);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -144,13 +155,14 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .page p + p { margin-top: 1rem; }
 .page h2 + p { margin-top: 0.75rem; }
 
+/* One line per entry, so a history fits a viewport instead of needing one. */
 .entry {
   display: flex;
   flex-wrap: wrap;
   gap: 0 1rem;
   justify-content: space-between;
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
   border-top: 1px solid var(--rule);
   font-size: var(--size-2);
 }
@@ -158,6 +170,11 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 .entry__what { font-weight: 500; }
 .entry__where { color: var(--muted); }
+.entry__where::before {
+  content: "\2014";
+  padding: 0 0.45em;
+  color: #c4c4c4;
+}
 .entry__when {
   color: var(--muted);
   font-size: var(--size-1);
