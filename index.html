@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Klaus Michael Strassner</title>
+<meta name="description" content="Klaus Michael Strassner — professional Overwatch 2 esports athlete, competing as Zydra. Based in Vienna, Austria.">
 <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   /* Manrope, variable. One file carries every weight from 200 to 800,
@@ -28,7 +29,10 @@
   :root {
     color-scheme: light;
 
-    /* One typeface. Scale carries the hierarchy. Fourth-based ratio. */
+    --ink: #000;
+    --muted: #6b6b6b;
+
+    /* One typeface. Scale and weight carry the hierarchy. */
     --size-1: 0.875rem;
     --size-2: 1rem;
     --size-3: 1.333rem;
@@ -38,7 +42,7 @@
 
   html {
     background: #fff;
-    color: #000;
+    color: var(--ink);
   }
 
   body {
@@ -50,6 +54,12 @@
     padding: clamp(3rem, 10vh, 7rem) clamp(1.5rem, 6vw, 4rem) clamp(1.5rem, 6vw, 4rem);
     box-sizing: border-box;
     font-family: "Manrope", system-ui, sans-serif;
+    line-height: 1.5;
+  }
+
+  .card {
+    text-align: center;
+    text-wrap: balance;
   }
 
   h1 {
@@ -58,12 +68,58 @@
     font-weight: 500;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    text-align: center;
-    text-wrap: balance;
   }
+
+  .role {
+    margin: clamp(0.75rem, 2vw, 1.25rem) 0 0;
+    font-size: var(--size-3);
+    font-weight: 400;
+  }
+
+  .meta {
+    margin: 0.35rem 0 0;
+    font-size: var(--size-2);
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .contact {
+    margin: clamp(1.75rem, 5vw, 2.75rem) 0 0;
+    font-size: var(--size-2);
+  }
+
+  .links {
+    margin: 0.35rem 0 0;
+    font-size: var(--size-1);
+    color: var(--muted);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: #bbb;
+    transition: text-decoration-color 0.15s ease;
+  }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .sep { padding: 0 0.5em; color: #c4c4c4; }
 </style>
 </head>
 <body>
-<h1>Klaus Michael Strassner</h1>
+
+<main class="card">
+  <h1>Klaus Michael Strassner</h1>
+  <p class="role">Professional Esports Athlete — Overwatch 2</p>
+  <p class="meta">Competing as Zydra<span class="sep">·</span>Vienna, Austria</p>
+
+  <p class="contact"><a href="mailto:contact@klausstrassner.com">contact@klausstrassner.com</a></p>
+  <p class="links">
+    <a href="https://www.linkedin.com/in/klaus-strassner">LinkedIn</a><span class="sep">·</span><a href="https://github.com/klaus-strassner">GitHub</a><span class="sep">·</span><a href="https://liquipedia.net/overwatch/Zydra">Liquipedia</a>
+  </p>
+</main>
+
 </body>
 </html>
