@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Klaus Michael Strassner</title>
-<meta name="description" content="Klaus Michael Strassner — professional Overwatch 2 esports athlete, competing as Zydra. Based in Vienna, Austria.">
+<meta name="description" content="Klaus Michael Strassner — Software Engineer at Cherry, business informatics and computer engineering student, retired Overwatch esports athlete. Vienna, Austria.">
 <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   /* Manrope, variable. One file carries every weight from 200 to 800,
@@ -31,6 +31,7 @@
 
     --ink: #000;
     --muted: #6b6b6b;
+    --gap: 1.25rem;
 
     /* One typeface. Scale and weight carry the hierarchy. */
     --size-1: 0.875rem;
@@ -70,26 +71,26 @@
     letter-spacing: -0.015em;
   }
 
-  .role {
-    margin: clamp(0.75rem, 2vw, 1.25rem) 0 0;
-    font-size: var(--size-3);
-    font-weight: 400;
+  .roles {
+    margin: clamp(1rem, 3vw, 1.5rem) 0 0;
+    font-size: var(--size-2);
+    line-height: 1.7;
   }
 
-  .meta {
-    margin: 0.35rem 0 0;
+  .address {
+    margin: var(--gap) 0 0;
     font-size: var(--size-2);
-    font-weight: 400;
     color: var(--muted);
   }
 
   .contact {
-    margin: clamp(1.75rem, 5vw, 2.75rem) 0 0;
+    margin: var(--gap) 0 0;
     font-size: var(--size-2);
+    line-height: 1.7;
   }
 
   .links {
-    margin: 0.35rem 0 0;
+    margin: var(--gap) 0 0;
     font-size: var(--size-1);
     color: var(--muted);
   }
@@ -105,17 +106,26 @@
   a:hover { text-decoration-color: currentColor; }
   a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
-  .sep { padding: 0 0.5em; color: #c4c4c4; }
+  .sep { padding: 0 0.4em; color: #c4c4c4; }
 </style>
 </head>
 <body>
 
 <main class="card">
   <h1>Klaus Michael Strassner</h1>
-  <p class="role">Professional Esports Athlete — Overwatch 2</p>
-  <p class="meta">Competing as Zydra<span class="sep">·</span>Vienna, Austria</p>
 
-  <p class="contact"><a href="mailto:contact@klausstrassner.com">contact@klausstrassner.com</a></p>
+  <p class="roles">
+    Software Engineer @ Cherry<br>
+    Business Informatics &amp; Computer Engineering Student<br>
+    Retired Esports-Athlete in Overwatch
+  </p>
+
+  <p class="address">1020 Vienna, Austria</p>
+
+  <p class="contact">
+    <a href="mailto:contact@klausstrassner.com">contact@klausstrassner.com</a>
+  </p>
+
   <p class="links">
     <a href="https://www.linkedin.com/in/klaus-strassner">LinkedIn</a><span class="sep">·</span><a href="https://github.com/klaus-strassner">GitHub</a><span class="sep">·</span><a href="https://liquipedia.net/overwatch/Zydra">Liquipedia</a>
   </p>
