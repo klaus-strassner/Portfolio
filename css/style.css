@@ -100,23 +100,9 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   line-height: 1.7;
 }
 
-.address {
-  margin: var(--gap) 0 0;
-  font-size: var(--size-2);
-  color: var(--muted);
-}
-
 .contact {
   margin: var(--gap) 0 0;
   font-size: var(--size-2);
-  line-height: 1.7;
-}
-
-.links {
-  margin: var(--gap) 0 0;
-  font-size: var(--size-1);
-  letter-spacing: 0.03em;
-  color: var(--muted);
 }
 
 /* --- Footer ----------------------------------------------------- */
@@ -155,35 +141,3 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .page p + p { margin-top: 1rem; }
 .page h2 + p { margin-top: 0.75rem; }
 
-/* One line per entry, so a history fits a viewport instead of needing one. */
-.entry {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 1rem;
-  justify-content: space-between;
-  margin-top: 0.8rem;
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--rule);
-  font-size: var(--size-2);
-}
-.entry:first-of-type { border-top: 0; }
-
-.entry__what { font-weight: 500; }
-.entry__where { color: var(--muted); }
-.entry__where::before {
-  content: "\2014";
-  padding: 0 0.45em;
-  color: #c4c4c4;
-}
-.entry__when {
-  color: var(--muted);
-  font-size: var(--size-1);
-  white-space: nowrap;
-}
-
-.back {
-  margin: clamp(2.5rem, 7vw, 3.5rem) 0 0;
-  font-size: var(--size-1);
-  letter-spacing: 0.03em;
-  color: var(--muted);
-}
