@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>About Klaus Michael Strassner</title>
+<meta name="description" content="Klaus Michael Strassner: software engineer at Cherry, business informatics and computer engineering student in Vienna. What I work on, and the principles behind it.">
+<link rel="canonical" href="https://klausstrassner.com/about/">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Klaus Michael Strassner">
+<meta property="og:title" content="About Klaus Michael Strassner">
+<meta property="og:description" content="Software Engineer at Cherry. Business informatics and computer engineering student. Vienna, Austria.">
+<meta property="og:url" content="https://klausstrassner.com/about/">
+<meta property="og:locale" content="en_GB">
+<meta property="profile:first_name" content="Klaus">
+<meta property="profile:last_name" content="Strassner">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About Klaus Michael Strassner">
+<meta name="twitter:description" content="Software Engineer at Cherry. Business informatics and computer engineering student. Vienna, Austria.">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<main class="page">
+  <h1>About</h1>
+
+  <p>I am Klaus, <span class="age" data-born="2002-09-26">23</span> years old and live in Vienna, Austria. I currently write firmware at Cherry for the peripherals professional players compete with. Alongside that, I study business informatics and computer engineering. And with whatever time is left, I support companies in their digital transformation and AI adoption.</p>
+
+  <img class="page__band" src="/img/portrait.webp"
+       width="1117" height="628" decoding="async"
+       alt="Portrait of Klaus Michael Strassner.">
+
+  <h2>Principles</h2>
+  <p>Pursue what excites you, set ambitious goals, work hard to achieve them, and inspire others along the way. These principles guide me in life, shaping how I navigate challenges and opportunities.</p>
+
+  <h2>Interests</h2>
+  <p>Beyond esports, I'm interested in computer engineering, hardware, and high-performance technologies. I enjoy exploring how precision, quality, and optimization can elevate performance – not just in machines but in humans too. I firmly believe that with the right mindset, consistent effort, and a commitment to growth, anything is achievable.</p>
+
+</main>
+
+<footer class="foot">
+  <a href="/">Home</a><span class="sep">·</span><a href="/about/">About</a><span class="sep">·</span><a href="/privacy/">Privacy</a><span class="sep">·</span><a href="/imprint/">Imprint</a>
+</footer>
+
+<script>
+/* The age in the opening line. The number is written into the markup so
+   the sentence reads correctly with no scripting at all, and this only
+   corrects it, which it has to do once a year. */
+(function () {
+  var el = document.querySelector('.age');
+  if (!el) return;
+  var born = new Date(el.getAttribute('data-born') + 'T00:00:00');
+  if (isNaN(born)) return;
+  var now = new Date();
+  var age = now.getFullYear() - born.getFullYear();
+  var months = now.getMonth() - born.getMonth();
+  /* Not had the birthday yet this year. */
+  if (months < 0 || (months === 0 && now.getDate() < born.getDate())) age--;
+  el.textContent = age;
+})();
+</script>
+
+</body>
+</html>

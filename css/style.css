@@ -25,6 +25,17 @@
   --rule: #e8e8e8;
   --gap: 1.25rem;
 
+  /* The text column, shared by every page. Change it here and the legal
+     pages, the card and the book all follow. Every page is exactly this
+     wide, the book included, so its picture rail comes out of the same
+     box rather than being added beside it. */
+  --measure: 58ch;
+  --plate: clamp(7rem, 13vw, 10rem);   /* width of the picture rail */
+  --beat-gap: var(--size-2);   /* the clearance between a plate and the text */
+  /* Subheading spacing, shared by the book and the legal pages. */
+  --section-space: clamp(0.9rem, 2.4vh, 1.35rem);   /* above a subheading */
+  --head-gap: 0.5rem;                               /* below one */
+
   /* One typeface. Scale and weight carry the hierarchy. */
   --size-1: 0.875rem;
   --size-2: 1rem;
@@ -61,7 +72,7 @@ body {
    min-height:0 is what lets a flex child shrink below its content. */
 main {
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: var(--plate);
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -90,6 +101,7 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 /* --- Landing card ---------------------------------------------- */
 
 .card {
+  max-width: var(--measure);
   text-align: center;
   text-wrap: balance;
 }
@@ -119,14 +131,14 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 /* --- Long-form pages -------------------------------------------- */
 
 .page {
-  max-width: 60ch;
-  text-align: left;
+  max-width: var(--measure);
+  text-align: justify;
 }
 
 .page h1 { margin-bottom: clamp(1.5rem, 4vw, 2.25rem); }
 
 .page h2 {
-  margin: clamp(1.5rem, 4vw, 2rem) 0 0;
+  margin: var(--section-space) 0 var(--head-gap);
   font-size: var(--size-1);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -139,5 +151,245 @@ a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   font-size: var(--size-2);
 }
 .page p + p { margin-top: 1rem; }
-.page h2 + p { margin-top: 0.75rem; }
 
+/* The way on to the long page. It closes the page rather than continuing
+   it, so it takes the same air as a section label above it. */
+.page__more { margin-top: var(--section-space); }
+
+/* The portrait, at the page's own width. No border and no rail: at any
+   smaller size it sits beside the prose as a box, and two blocks of
+   similar weight side by side read as a picture dropped in rather than
+   as part of the page. Given the full measure it is simply how the page
+   opens. */
+.page__band {
+  display: block;
+  width: 100%;
+  /* No aspect-ratio and no object-fit. The height follows the file's own
+     proportions, so the picture is shown as it was cropped and never
+     recomposed by the layout. */
+  height: auto;
+  /* It follows the opening paragraph now, so it needs the same air above
+     it as below. The lower margin collapses with the heading beneath. */
+  margin: clamp(1.5rem, 4vw, 2.25rem) 0;
+  background: var(--rule);
+}
+
+/* --- The book ---------------------------------------------------- */
+/* Four authored leaves on one horizontal track. Snap does the flipping,
+   so swipe, arrow keys, anchor links and the back button all work with
+   no script at all. The script only adds arrow keys and focus. */
+
+.book-wrap {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: min(var(--measure), 100%);
+}
+
+.book-wrap h1 { margin-bottom: clamp(1.25rem, 3.5vh, 2rem); }
+
+.book {
+  flex: 1 1 auto;
+  min-height: var(--plate);
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.book::-webkit-scrollbar { display: none; }
+
+.leaf {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  min-height: var(--plate);
+}
+/* The leaf is a container, not a control. It takes focus on a turn so
+   keyboard and screen reader users follow the flip, but showing a ring
+   around a whole page would read as an error. */
+.leaf:focus { outline: none; }
+
+/* The chapter title. It differs from the beat headings below it on every
+   axis that reads at a glance, size, case and weight, rather than on
+   colour alone, which was too quiet to register as a level. */
+.leaf__head {
+  flex: none;
+  margin: 0 0 clamp(0.9rem, 2.5vh, 1.4rem);
+  font-size: var(--size-3);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+/* The leaf scrolls, the running head and the folio do not, so the page
+   turn stays reachable no matter how far down the prose you are. */
+.leaf__body {
+  flex: 1 1 auto;
+  min-height: var(--plate);
+  overflow-y: auto;
+  /* Without this the computed overflow-x is auto, which makes the leaf a
+     horizontal scroll container of its own and lets it swallow swipes. */
+  overflow-x: hidden;
+  /* Contain the vertical axis only. Containing both is what stopped a
+     sideways swipe from ever chaining out to the page track. */
+  overscroll-behavior-y: contain;
+  overscroll-behavior-x: auto;
+  /* No gutter: the 6px scrollbar only claims space on the rare short
+     viewport where the leaf actually scrolls, and reserving it always
+     would hold every paragraph 16px clear of the rule and the title. */
+  /* One grid for the whole leaf rather than one per beat, so every beat
+     shares the same rail and the same measure. */
+  display: grid;
+  /* A rail either side of the text. The prose spans whichever two of the
+     three columns leave its picture on the correct side, so the measure
+     stays identical whether the plate is left or right. */
+  grid-template-columns: var(--plate) minmax(0, 1fr) var(--plate);
+  column-gap: var(--beat-gap);
+  align-content: start;
+  /* Items must not stretch. A picture makes its rows taller than the
+     text in them, and a stretching heading absorbs that slack, which
+     opens a different gap under every heading that has a picture. */
+  align-items: start;
+}
+
+/* A hairline with no stepper arrows, which needs the two engines kept
+   apart. Chrome gives scrollbar-width precedence over the ::-webkit-
+   pseudo-elements, and its thin scrollbar draws arrows on Windows, so
+   Chrome gets the pseudo-elements and Firefox, which draws none, gets
+   the standard properties behind a vendor query. */
+.leaf__body::-webkit-scrollbar { width: 6px; }
+.leaf__body::-webkit-scrollbar-track { background: transparent; }
+.leaf__body::-webkit-scrollbar-thumb { background: #d6d6d6; border-radius: 3px; }
+.leaf__body::-webkit-scrollbar-thumb:hover { background: #bdbdbd; }
+.leaf__body::-webkit-scrollbar-button { display: none; height: 0; }
+
+@supports (-moz-appearance: none) {
+  .leaf__body {
+    scrollbar-width: thin;
+    scrollbar-color: #d6d6d6 transparent;
+  }
+}
+
+.leaf__body p { margin: 0; font-size: var(--size-2); }
+.leaf__body p + p { margin-top: 1rem; }
+
+/* The outer wrapper dissolves, the inner one does not, so a beat is one
+   grid row: heading and paragraph travel together. Giving each of them a
+   row of its own instead would let a plate taller than the text push the
+   two apart, since grid splits that slack across every row the plate
+   spans. */
+.beat { display: contents; }
+
+.beat__text { grid-column: 1 / 3; }
+.beat--flip .beat__text { grid-column: 2 / 4; }
+/* A beat with no picture of its own takes the whole measure. */
+.beat--full .beat__text { grid-column: 1 / 4; }
+/* General sibling, not adjacent: the plate sits between two beats in
+   source order so that the phone layout puts it beside the right
+   paragraph, and an adjacent-sibling rule would skip the beat after it. */
+.beat ~ .beat .beat__text { margin-top: var(--section-space); }
+
+.beat h3 {
+  margin: 0 0 var(--head-gap);
+  font-size: var(--size-1);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* Justified, which squares the text block off against the picture
+   beside it. No hyphenation, so the beats that sit in the rail open
+   gaps between words: broken words would cost more than they save. */
+.beat p {
+  line-height: 1.45;
+  text-align: justify;
+}
+
+/* Square, and sized so its side is about the height of the beat it sits
+   beside. The rail column drives the width and aspect-ratio takes the
+   height from it, rather than the row driving the height, which would
+   stretch the square into a portrait. */
+.leaf__plate {
+  /* Grid blockifies its items, so this only matters once the phone
+     layout drops the grid; an inline replaced element collapses. */
+  display: block;
+  grid-column: 3;
+  /* Always 1:1. The width comes from the rail, the height follows it.
+     Top-aligned, so the square starts level with its beat's heading.
+     min-height matches the square, so a picture taller than its beat
+     grows that row instead of spilling into the next one. */
+  align-self: start;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  min-height: var(--plate);
+  box-sizing: border-box;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  background: var(--rule);
+}
+/* One row per beat, so a plate names the beat it belongs to. It cannot
+   reach into the next one: a beat with no picture takes the whole
+   measure, rail included, and would have nowhere to sit.
+   --plate sets the width of the rail and the square takes its height
+   from that, so editing a paragraph moves the picture but can never
+   stretch it. Where the square is the taller of the two, it is the row
+   that gives, and the slack falls below the beat's last line. */
+.leaf__plate--from-1 { grid-row: 1; }
+/* Every beat but the first carries the between-beat margin inside its
+   row, so a plate beside one must clear it to sit level with the heading
+   rather than with the top of the row. */
+.leaf__plate--from-3 { grid-row: 3; margin-top: var(--section-space); }
+.leaf__plate--left { grid-column: 1; }
+
+/* One column on a phone, where there is no rail to span. */
+@media (max-width: 34rem) {
+  .leaf__body { display: block; }
+  .leaf__plate {
+    width: min(100%, 15rem);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-top: 0.9rem;
+  }
+}
+
+/* The chapter's span, as a half-open interval: closed at the year it
+   starts, unbounded where it still runs. Tabular figures so the digits
+   line up from one chapter to the next. */
+.leaf__when {
+  margin-left: 0.55em;
+  font-size: var(--size-1);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Scaffolding text. Delete this rule once every leaf is written. */
+.todo { color: var(--muted); }
+
+/* Three columns rather than flex, so the folio stays centred even when
+   one side of it is empty. */
+.leaf__nav {
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
+  gap: 1rem;
+  margin: clamp(1.75rem, 5vh, 2.75rem) 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--size-1);
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+.leaf__step--next { text-align: right; }
+
+@media (prefers-reduced-motion: reduce) {
+  .book { scroll-behavior: auto; }
+}
